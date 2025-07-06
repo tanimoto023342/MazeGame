@@ -1,0 +1,2 @@
+# MazeGame
+For Game Jam
