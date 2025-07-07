@@ -1,0 +1,12 @@
+title: Pipe World Docs
+email: martino.coro@gmail.com
+description: >- 
+  Pipe World game documentation.
+  Game Pipe World is a variant of the popular type of puzzle games similar to Pipe Mania or Water Pipes, 
+  where the common goal is to transport liquid from one end to the other using a system of interconnected Pipes.
+baseurl: "/pipe-world"
+github_username:  corovcam
+
+# Build settings
+theme: minima
+
