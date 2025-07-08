@@ -70,14 +70,14 @@ public class MenuHandler : MonoBehaviour
         Button buttonComp = buttonGO.AddComponent<Button>();
         buttonGO.AddComponent<CanvasRenderer>();
         Image buttonImg = buttonGO.AddComponent<Image>();
-        buttonImg.sprite = Resources.Load<Sprite>("UI/tileBlue_01");
+        buttonImg.sprite = Resources.Load<Sprite>("UI/ƒ{ƒ^ƒ“");
         buttonImg.color = new Color(100, 249, 255, 255);
         buttonComp.targetGraphic = buttonImg;
 
         // Button Component position
         RectTransform transform = buttonComp.GetComponent<RectTransform>();
         transform.localPosition = new Vector3(posX, posY, 0);
-        transform.sizeDelta = new Vector2(160, 30);
+        transform.sizeDelta = new Vector2(160, 160);
         transform.localScale = new Vector3(4.5f, 4.5f, 0);
 
         ConfigureButtonSounds(ref buttonComp, () =>
@@ -97,11 +97,11 @@ public class MenuHandler : MonoBehaviour
         textComp.fontSize = 20;
         textComp.alignment = TextAlignmentOptions.Center;
         textComp.enableWordWrapping = false;
-        textComp.color = Color.black;
+        textComp.color = new Color(255, 255, 200, 255);
 
         // Button Text Component relative position
         transform = textComp.GetComponent<RectTransform>();
-        transform.localPosition = new Vector3(0, 0, 0);
+        transform.localPosition = new Vector3(0, 5, 0);
         transform.sizeDelta = new Vector2(0, 0);
         transform.localScale = new Vector3(1, 1, 1);
     }
@@ -116,12 +116,12 @@ public class MenuHandler : MonoBehaviour
 
         TextMeshProUGUI textComp = titleGO.AddComponent<TextMeshProUGUI>();
         textComp.text = "Pipe World";
-        textComp.font = (TMP_FontAsset)Resources.Load("UI/Electronic Highway Sign SDF");
+        textComp.font = (TMP_FontAsset)Resources.Load("UI/Assets/Resources/UI/BestTen-CRT SDF");
         textComp.fontSize = 40;
         textComp.fontStyle = FontStyles.Bold;
         textComp.alignment = TextAlignmentOptions.Center;
         textComp.enableWordWrapping = false;
-        textComp.color = Color.white;
+        textComp.color = new Color(255, 255, 200, 255);
 
         // Title text position
         RectTransform transform = textComp.GetComponent<RectTransform>();
