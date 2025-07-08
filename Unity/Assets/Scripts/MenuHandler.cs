@@ -77,7 +77,7 @@ public class MenuHandler : MonoBehaviour
         // Button Component position
         RectTransform transform = buttonComp.GetComponent<RectTransform>();
         transform.localPosition = new Vector3(posX, posY, 0);
-        transform.sizeDelta = new Vector2(160, 160);
+        transform.sizeDelta = new Vector2(160, 30);
         transform.localScale = new Vector3(4.5f, 4.5f, 0);
 
         ConfigureButtonSounds(ref buttonComp, () =>
@@ -101,9 +101,9 @@ public class MenuHandler : MonoBehaviour
 
         // Button Text Component relative position
         transform = textComp.GetComponent<RectTransform>();
-        transform.localPosition = new Vector3(0, 5, 0);
+        transform.localPosition = new Vector3(0, 0, 0);
         transform.sizeDelta = new Vector2(0, 0);
-        transform.localScale = new Vector3(1, 1, 1);
+        transform.localScale = new Vector3(1, 1f, 1);
     }
 
     void GenerateTitleText()
