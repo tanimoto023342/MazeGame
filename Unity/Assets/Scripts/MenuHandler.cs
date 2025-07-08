@@ -97,7 +97,7 @@ public class MenuHandler : MonoBehaviour
         textComp.fontSize = 20;
         textComp.alignment = TextAlignmentOptions.Center;
         textComp.enableWordWrapping = false;
-        textComp.color = new Color(255, 255, 200, 255);
+        textComp.color = new Color(255f / 255f, 255f / 255f, 200f / 255f, 255f / 255f);
 
         // Button Text Component relative position
         transform = textComp.GetComponent<RectTransform>();
@@ -112,16 +112,16 @@ public class MenuHandler : MonoBehaviour
         GameObject titleGO = new GameObject();
         titleGO.transform.parent = canvasGO.transform;
         titleGO.layer = canvasGO.layer;
-        titleGO.name = "Pipe World";
+        titleGO.name = "Title Text";
 
         TextMeshProUGUI textComp = titleGO.AddComponent<TextMeshProUGUI>();
-        textComp.text = "Pipe World";
-        textComp.font = (TMP_FontAsset)Resources.Load("UI/Assets/Resources/UI/BestTen-CRT SDF");
+        textComp.text = "パイプを繋げるゲーム";
+        textComp.font = (TMP_FontAsset)Resources.Load("UI/BestTen-CRT SDF");
         textComp.fontSize = 40;
         textComp.fontStyle = FontStyles.Bold;
         textComp.alignment = TextAlignmentOptions.Center;
         textComp.enableWordWrapping = false;
-        textComp.color = new Color(255, 255, 200, 255);
+        textComp.color = new Color(255f / 255f, 255f / 255f, 200f / 255f, 255f / 255f);
 
         // Title text position
         RectTransform transform = textComp.GetComponent<RectTransform>();
