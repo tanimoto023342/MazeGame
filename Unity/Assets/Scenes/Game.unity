@@ -468,10 +468,10 @@ MonoBehaviour:
   - {fileID: 995696820, guid: 5eb9642782e9c66498098f7a8a938a48, type: 3}
   - {fileID: -278330512, guid: 5eb9642782e9c66498098f7a8a938a48, type: 3}
   filledGreenPipeSprites:
-  - {fileID: -356548603, guid: f355c186478800d4c9b8cd5f1d114125, type: 3}
-  - {fileID: -617833221, guid: f355c186478800d4c9b8cd5f1d114125, type: 3}
-  - {fileID: -128477020, guid: f355c186478800d4c9b8cd5f1d114125, type: 3}
-  - {fileID: 759187857, guid: f355c186478800d4c9b8cd5f1d114125, type: 3}
+  - {fileID: 1791538521, guid: 33ac69270d44c2b498ff6d211578ce54, type: 3}
+  - {fileID: 353980080, guid: 33ac69270d44c2b498ff6d211578ce54, type: 3}
+  - {fileID: 903390365, guid: 33ac69270d44c2b498ff6d211578ce54, type: 3}
+  - {fileID: 1718341298, guid: 33ac69270d44c2b498ff6d211578ce54, type: 3}
   greyPipeSprites:
   - {fileID: -1844520315, guid: d153997870c667147b3cf20fd1990d32, type: 3}
   - {fileID: 19438309, guid: d153997870c667147b3cf20fd1990d32, type: 3}
@@ -483,15 +483,15 @@ MonoBehaviour:
   - {fileID: -980376636, guid: abd03e9d6c3c08f4ab6da0b9088c923a, type: 3}
   - {fileID: -967172131, guid: abd03e9d6c3c08f4ab6da0b9088c923a, type: 3}
   blueGreenPipeSprites:
-  - {fileID: -547950941, guid: bb727e33301e72441968a9fff3cef36f, type: 3}
-  - {fileID: 684964106, guid: bb727e33301e72441968a9fff3cef36f, type: 3}
-  - {fileID: -831937517, guid: bb727e33301e72441968a9fff3cef36f, type: 3}
-  - {fileID: -435061761, guid: bb727e33301e72441968a9fff3cef36f, type: 3}
+  - {fileID: 1743036467, guid: 709d9852b567e49428ffde94e3383817, type: 3}
+  - {fileID: -2053017155, guid: 709d9852b567e49428ffde94e3383817, type: 3}
+  - {fileID: 267676361, guid: 709d9852b567e49428ffde94e3383817, type: 3}
+  - {fileID: -579969790, guid: 709d9852b567e49428ffde94e3383817, type: 3}
   filledBlueGreenPipeSprites:
-  - {fileID: -2067324420, guid: 63cbb85b0096c734f978217857a0b639, type: 3}
-  - {fileID: -1635659239, guid: 63cbb85b0096c734f978217857a0b639, type: 3}
-  - {fileID: 1053425909, guid: 63cbb85b0096c734f978217857a0b639, type: 3}
-  - {fileID: 1081205182, guid: 63cbb85b0096c734f978217857a0b639, type: 3}
+  - {fileID: 1702718828, guid: 1c530d1c3b7c0b14db05448403442dca, type: 3}
+  - {fileID: 1806225447, guid: 1c530d1c3b7c0b14db05448403442dca, type: 3}
+  - {fileID: 1334693252, guid: 1c530d1c3b7c0b14db05448403442dca, type: 3}
+  - {fileID: -328836067, guid: 1c530d1c3b7c0b14db05448403442dca, type: 3}
   redGreyPipeSprites:
   - {fileID: -1306173660, guid: cbc2dea5de92ea040ae12dbf45daf3fb, type: 3}
   - {fileID: 884045774, guid: cbc2dea5de92ea040ae12dbf45daf3fb, type: 3}

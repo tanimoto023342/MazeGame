@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 039be6804f2e4d94dbba860660b1193c
+guid: 33ac69270d44c2b498ff6d211578ce54
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pipes-green-spritesheet_0
+      name: pipe_sprite_water_0
       rect:
         serializedVersion: 2
         x: 0
@@ -112,20 +112,20 @@ TextureImporter:
         width: 487
         height: 487
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ce2e8595cb16474691f6b3364db9956
-      internalID: -1640885848
+      spriteID: 84f002e1e62d1d145ad2f5b3f9169de7
+      internalID: 353980080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipes-green-spritesheet_1
+      name: pipe_sprite_water_1
       rect:
         serializedVersion: 2
         x: 487
@@ -133,20 +133,20 @@ TextureImporter:
         width: 487
         height: 487
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 220d26487111eba4b9ae5a63eb30ae37
-      internalID: 683086612
+      spriteID: 446b587c24a5fe445a3b341b6898b1f2
+      internalID: 1791538521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipes-green-spritesheet_2
+      name: pipe_sprite_water_2
       rect:
         serializedVersion: 2
         x: 974
@@ -154,20 +154,20 @@ TextureImporter:
         width: 487
         height: 487
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7c1202a2002dae43b55da164e029a9e
-      internalID: -1808879329
+      spriteID: 15e973bffb58dd24f831bc4bcab8ec16
+      internalID: 903390365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipes-green-spritesheet_3
+      name: pipe_sprite_water_3
       rect:
         serializedVersion: 2
         x: 1461
@@ -175,14 +175,14 @@ TextureImporter:
         width: 487
         height: 487
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa2e76600516a8540afe3ddd51e9f9b7
-      internalID: -2115031586
+      spriteID: 17b68da69adf27d4c98c7d46a87b0ad4
+      internalID: 1718341298
       vertices: []
       indices: 
       edges: []
@@ -198,13 +198,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pipes-green-spritesheet_2: -1808879329
-      pipes-green-spritesheet_1: 683086612
-      pipes-green-spritesheet_0: -1640885848
-      pipes-green-spritesheet_3: -2115031586
+      pipe_sprite_water_0: 353980080
+      pipe_sprite_water_2: 903390365
+      pipe_sprite_water_1: 1791538521
+      pipe_sprite_water_3: 1718341298
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 1
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
