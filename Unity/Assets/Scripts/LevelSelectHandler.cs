@@ -186,9 +186,11 @@ public class LevelSelectHandler : MonoBehaviour
 
     /// <summary>
     /// Generate Previous and Next buttons to be used in Pagination
+    /// メソッドの先頭にreturnを付与することで使用不可にしました
     /// </summary>
     void ConfigurePrevNextButtons()
     {
+        return;
         previousBtn = Instantiate(previousPageBtn, canvasGO.transform);
         nextBtn = Instantiate(nextPageBtn, canvasGO.transform);
 
