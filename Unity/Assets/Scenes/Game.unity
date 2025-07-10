@@ -463,10 +463,10 @@ MonoBehaviour:
   - {fileID: 8636734621881648576, guid: 75782a52504dfd647af053a44dc23f47, type: 3}
   - {fileID: 9216724844050086081, guid: d72806b732afcec45b0c8e4e97ba7f74, type: 3}
   greenPipeSprites:
-  - {fileID: 683086612, guid: 039be6804f2e4d94dbba860660b1193c, type: 3}
-  - {fileID: -1640885848, guid: 039be6804f2e4d94dbba860660b1193c, type: 3}
-  - {fileID: -1808879329, guid: 039be6804f2e4d94dbba860660b1193c, type: 3}
-  - {fileID: -2115031586, guid: 039be6804f2e4d94dbba860660b1193c, type: 3}
+  - {fileID: -800674540, guid: 5eb9642782e9c66498098f7a8a938a48, type: 3}
+  - {fileID: -608682712, guid: 5eb9642782e9c66498098f7a8a938a48, type: 3}
+  - {fileID: 995696820, guid: 5eb9642782e9c66498098f7a8a938a48, type: 3}
+  - {fileID: -278330512, guid: 5eb9642782e9c66498098f7a8a938a48, type: 3}
   filledGreenPipeSprites:
   - {fileID: -356548603, guid: f355c186478800d4c9b8cd5f1d114125, type: 3}
   - {fileID: -617833221, guid: f355c186478800d4c9b8cd5f1d114125, type: 3}
