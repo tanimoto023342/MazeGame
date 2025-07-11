@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public static class SceneHandler
 {
-    public static int LevelSelectLevelCount = Resources.LoadAll("LevelSelectLevels", typeof(TextAsset)).Length;
+    public static int LevelSelectLevelCount = 8;
+    //public static int LevelSelectLevelCount = Resources.LoadAll("LevelSelectLevels", typeof(TextAsset)).Length;
     public static int FreeWorldLevelCount = Resources.LoadAll("FreeWorldLevels", typeof(TextAsset)).Length;
     static bool[] tutorialsPlayed = new bool[3];
 
