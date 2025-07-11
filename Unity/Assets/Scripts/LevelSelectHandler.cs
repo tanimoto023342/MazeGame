@@ -15,7 +15,7 @@ public class LevelSelectHandler : MonoBehaviour
     public Button mainMenuBtnPrefab;
     public Button previousPageBtn;
     public Button nextPageBtn;
-    public Sprite levelSelectBtnBG;
+    public Sprite[] levelSelectBtnBG;
     public Sprite freeWorldBtnBG;
     public Sprite[] levelSelectNumbers;
     public Sprite[] freeWorldNumbers;
@@ -130,7 +130,7 @@ public class LevelSelectHandler : MonoBehaviour
 
         // Image
         Image buttonImg = buttonGO.AddComponent<Image>();
-        buttonImg.sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG;
+        buttonImg.sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG[levelNumber-1];
         buttonImg.color = new Color(214, 214, 214, 255);
 
         // Button
@@ -186,14 +186,16 @@ public class LevelSelectHandler : MonoBehaviour
 
     /// <summary>
     /// Generate Previous and Next buttons to be used in Pagination
+    /// メソッドの先頭にreturnを付与することで使用不可にしました
     /// </summary>
     void ConfigurePrevNextButtons()
     {
+        return;
         previousBtn = Instantiate(previousPageBtn, canvasGO.transform);
         nextBtn = Instantiate(nextPageBtn, canvasGO.transform);
 
-        previousBtn.GetComponent<Image>().sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG;
-        nextBtn.GetComponent<Image>().sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG;
+        //previousBtn.GetComponent<Image>().sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG[0];
+        //nextBtn.GetComponent<Image>().sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG[0];
 
         SetButtonTransform(previousBtn, 115, 65);
         SetButtonTransform(nextBtn, -115, 65);
@@ -264,7 +266,7 @@ public class LevelSelectHandler : MonoBehaviour
     void ConfigureMainMenuButton()
     {
         Button mainMenuBtn = Instantiate(mainMenuBtnPrefab, canvasGO.transform);
-        mainMenuBtn.GetComponent<Image>().sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG;
+        mainMenuBtn.GetComponent<Image>().sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG[0];
         SetButtonTransform(mainMenuBtn, 137.3f, -65);
         MenuHandler.ConfigureButtonSounds(ref mainMenuBtn, audioSources[0].Play, audioSources[1].Play);
         mainMenuBtn.onClick.AddListener(SceneHandler.LoadMainMenuScene);

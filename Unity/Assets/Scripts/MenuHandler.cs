@@ -27,7 +27,8 @@ public class MenuHandler : MonoBehaviour
 
         GenerateMenuBtn("Level Select", 0, 224, () => SceneHandler.LoadLevelSelectScene(isFreeWorldMode: false));
         GenerateMenuBtn("Arcade", 0, 15, SceneHandler.LoadArcadeGameScene);
-        GenerateMenuBtn("Free World", 0, -194, () => SceneHandler.LoadLevelSelectScene(isFreeWorldMode: true));
+        //ボタンをコメントアウトすることで無効化
+        //GenerateMenuBtn("Free World", 0, -194, () => SceneHandler.LoadLevelSelectScene(isFreeWorldMode: true));
         ConfigureDropdownGO();
 
         GenerateTitleText();
@@ -70,7 +71,7 @@ public class MenuHandler : MonoBehaviour
         Button buttonComp = buttonGO.AddComponent<Button>();
         buttonGO.AddComponent<CanvasRenderer>();
         Image buttonImg = buttonGO.AddComponent<Image>();
-        buttonImg.sprite = Resources.Load<Sprite>("UI/tileBlue_01");
+        buttonImg.sprite = Resources.Load<Sprite>("UI/ボタン");
         buttonImg.color = new Color(100, 249, 255, 255);
         buttonComp.targetGraphic = buttonImg;
 
@@ -97,13 +98,13 @@ public class MenuHandler : MonoBehaviour
         textComp.fontSize = 20;
         textComp.alignment = TextAlignmentOptions.Center;
         textComp.enableWordWrapping = false;
-        textComp.color = Color.black;
+        textComp.color = new Color(255f / 255f, 255f / 255f, 200f / 255f, 255f / 255f);
 
         // Button Text Component relative position
         transform = textComp.GetComponent<RectTransform>();
         transform.localPosition = new Vector3(0, 0, 0);
         transform.sizeDelta = new Vector2(0, 0);
-        transform.localScale = new Vector3(1, 1, 1);
+        transform.localScale = new Vector3(1, 1f, 1);
     }
 
     void GenerateTitleText()
@@ -112,16 +113,16 @@ public class MenuHandler : MonoBehaviour
         GameObject titleGO = new GameObject();
         titleGO.transform.parent = canvasGO.transform;
         titleGO.layer = canvasGO.layer;
-        titleGO.name = "Pipe World";
+        titleGO.name = "Title Text";
 
         TextMeshProUGUI textComp = titleGO.AddComponent<TextMeshProUGUI>();
-        textComp.text = "Pipe World";
-        textComp.font = (TMP_FontAsset)Resources.Load("UI/Electronic Highway Sign SDF");
+        textComp.text = "パイプを繋げるゲーム";
+        textComp.font = (TMP_FontAsset)Resources.Load("UI/BestTen-CRT SDF");
         textComp.fontSize = 40;
         textComp.fontStyle = FontStyles.Bold;
         textComp.alignment = TextAlignmentOptions.Center;
         textComp.enableWordWrapping = false;
-        textComp.color = Color.white;
+        textComp.color = new Color(255f / 255f, 255f / 255f, 200f / 255f, 255f / 255f);
 
         // Title text position
         RectTransform transform = textComp.GetComponent<RectTransform>();
