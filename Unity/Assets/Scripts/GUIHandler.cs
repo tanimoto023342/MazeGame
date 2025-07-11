@@ -22,7 +22,7 @@ public class GUIHandler : MonoBehaviour
 
     public Button restartButton;
     public Button quitButton;
-    public Button nextLevelButton;
+    //public Button nextLevelButton;
     public Button pauseButton;
     public Button skipButton;
     public Button startFlowButton;
@@ -45,7 +45,7 @@ public class GUIHandler : MonoBehaviour
         gm = GetComponent<GameManager>();
         restartButton.onClick.AddListener(RestartGame);
         quitButton.onClick.AddListener(GetBackToMainMenu);
-        nextLevelButton.onClick.AddListener(GoToNextLevel);
+        //nextLevelButton.onClick.AddListener(GoToNextLevel);
         skipButton.onClick.AddListener(AccelerateFlow);
         startFlowButton.onClick.AddListener(gm.StartFlow);
     }
@@ -58,7 +58,7 @@ public class GUIHandler : MonoBehaviour
         bool isLastLevel = LevelData.LevelNumber == 
             (LevelData.IsFreeWorldMode ? SceneHandler.FreeWorldLevelCount : SceneHandler.LevelSelectLevelCount);
         if (LevelData.IsArcadeMode || isLastLevel)
-            nextLevelButton.gameObject.SetActive(false);
+            //nextLevelButton.gameObject.SetActive(false);
 
         timerText.text = LevelData.TimeLimit.ToString();
         StartCoroutine("CountdownTimer");
