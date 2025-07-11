@@ -71,7 +71,7 @@ public class MenuHandler : MonoBehaviour
         Button buttonComp = buttonGO.AddComponent<Button>();
         buttonGO.AddComponent<CanvasRenderer>();
         Image buttonImg = buttonGO.AddComponent<Image>();
-        buttonImg.sprite = Resources.Load<Sprite>("UI/ボタン");
+        buttonImg.sprite = Resources.Load<Sprite>("UI/ボタン.png");
         buttonImg.color = new Color(100, 249, 255, 255);
         buttonComp.targetGraphic = buttonImg;
 
