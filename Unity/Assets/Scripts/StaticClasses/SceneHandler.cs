@@ -38,7 +38,7 @@ public static class SceneHandler
         LevelData.TimeLimit = LevelData.Difficulty == Difficulty.Normal ? 40 : 
             (LevelData.Difficulty == Difficulty.Hard ? 30 : 60);
 
-        if (tutorialsPlayed[1])
+        if (true)//チュートリアルに分岐しないよう変更
             SceneManager.LoadScene("Game", LoadSceneMode.Single);
         else
         {
@@ -72,7 +72,7 @@ public static class SceneHandler
         LevelData.TimeLimit = LevelData.Difficulty == Difficulty.Normal ? difficulties[1] :
             (LevelData.Difficulty == Difficulty.Hard ? difficulties[2] : difficulties[0]);
 
-        if ((LevelData.IsFreeWorldMode && tutorialsPlayed[2]) || (!LevelData.IsFreeWorldMode && tutorialsPlayed[0]))
+        if ((LevelData.IsFreeWorldMode && true) || (!LevelData.IsFreeWorldMode && true))//チュートリアルに分岐しないよう変更
             SceneManager.LoadScene("Game", LoadSceneMode.Single);
         else
         {
