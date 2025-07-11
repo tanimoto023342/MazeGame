@@ -130,7 +130,7 @@ public class LevelSelectHandler : MonoBehaviour
 
         // Image
         Image buttonImg = buttonGO.AddComponent<Image>();
-        buttonImg.sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG[0];
+        buttonImg.sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG[levelNumber-1];
         buttonImg.color = new Color(214, 214, 214, 255);
 
         // Button
@@ -194,8 +194,8 @@ public class LevelSelectHandler : MonoBehaviour
         previousBtn = Instantiate(previousPageBtn, canvasGO.transform);
         nextBtn = Instantiate(nextPageBtn, canvasGO.transform);
 
-        previousBtn.GetComponent<Image>().sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG[0];
-        nextBtn.GetComponent<Image>().sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG[0];
+        //previousBtn.GetComponent<Image>().sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG[0];
+        //nextBtn.GetComponent<Image>().sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG[0];
 
         SetButtonTransform(previousBtn, 115, 65);
         SetButtonTransform(nextBtn, -115, 65);
