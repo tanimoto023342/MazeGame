@@ -15,7 +15,7 @@ public class LevelSelectHandler : MonoBehaviour
     public Button mainMenuBtnPrefab;
     public Button previousPageBtn;
     public Button nextPageBtn;
-    public Sprite levelSelectBtnBG;
+    public Sprite[] levelSelectBtnBG;
     public Sprite freeWorldBtnBG;
     public Sprite[] levelSelectNumbers;
     public Sprite[] freeWorldNumbers;
@@ -130,7 +130,7 @@ public class LevelSelectHandler : MonoBehaviour
 
         // Image
         Image buttonImg = buttonGO.AddComponent<Image>();
-        buttonImg.sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG;
+        buttonImg.sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG[levelNumber-1];
         buttonImg.color = new Color(214, 214, 214, 255);
 
         // Button
@@ -182,6 +182,29 @@ public class LevelSelectHandler : MonoBehaviour
             transform = numberImg.GetComponent<RectTransform>();
             transform.localScale = new Vector3(1, 1, 1);
         }
+
+        //スコア表示機能
+        GameObject scoreTextGO = new GameObject("HighScoreText");
+        scoreTextGO.transform.SetParent(buttonGO.transform, false); // falseでローカル位置維持
+        scoreTextGO.layer = buttonGO.layer;
+
+        TMP_Text scoreTMP = scoreTextGO.AddComponent<TextMeshProUGUI>();
+        scoreTMP.fontSize = 50;
+        scoreTMP.alignment = TextAlignmentOptions.Center;
+        scoreTMP.color = Color.yellow;
+
+        int highScore = PlayerPrefs.GetInt("HighScore_Level" + levelNumber, 0); //ここでスコア取得
+        scoreTMP.text = "Best: " + highScore.ToString();
+
+        //レイアウト
+        RectTransform scoreRT = scoreTextGO.GetComponent<RectTransform>();
+        scoreRT.anchorMin = new Vector2(0.5f, 0);
+        scoreRT.anchorMax = new Vector2(0.5f, 0);
+        scoreRT.pivot = new Vector2(0.5f, 1);
+        scoreRT.anchoredPosition = new Vector2(0, -10);
+        scoreRT.sizeDelta = new Vector2(100, 30);
+        scoreRT.localScale = Vector3.one;
+        //ここまでスコア表示機能
     }
 
     /// <summary>
@@ -194,8 +217,8 @@ public class LevelSelectHandler : MonoBehaviour
         previousBtn = Instantiate(previousPageBtn, canvasGO.transform);
         nextBtn = Instantiate(nextPageBtn, canvasGO.transform);
 
-        previousBtn.GetComponent<Image>().sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG;
-        nextBtn.GetComponent<Image>().sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG;
+        //previousBtn.GetComponent<Image>().sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG[0];
+        //nextBtn.GetComponent<Image>().sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG[0];
 
         SetButtonTransform(previousBtn, 115, 65);
         SetButtonTransform(nextBtn, -115, 65);
@@ -266,7 +289,7 @@ public class LevelSelectHandler : MonoBehaviour
     void ConfigureMainMenuButton()
     {
         Button mainMenuBtn = Instantiate(mainMenuBtnPrefab, canvasGO.transform);
-        mainMenuBtn.GetComponent<Image>().sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG;
+        mainMenuBtn.GetComponent<Image>().sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG[0];
         SetButtonTransform(mainMenuBtn, 137.3f, -65);
         MenuHandler.ConfigureButtonSounds(ref mainMenuBtn, audioSources[0].Play, audioSources[1].Play);
         mainMenuBtn.onClick.AddListener(SceneHandler.LoadMainMenuScene);

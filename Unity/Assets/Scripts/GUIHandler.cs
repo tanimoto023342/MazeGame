@@ -107,8 +107,19 @@ public class GUIHandler : MonoBehaviour
         {
             endGameText.name = "You Won";
             endGameText.GetComponent<TMP_Text>().text = "YOU WON!";
-            totalScore.text = CalculateTotalScore();
+            string score = CalculateTotalScore();
+            totalScore.text = score;
             levelHandler.PlayWinningAudio();
+
+            //ƒXƒRƒA•Û‘¶
+            int level = LevelData.LevelNumber;
+            int currentScore = int.Parse(score);
+            int previousScore = PlayerPrefs.GetInt("HighScore_Level" + level, 0);
+            if (currentScore > previousScore)
+            {
+                PlayerPrefs.SetInt("HighScore_Level" + level, currentScore);
+                PlayerPrefs.Save();
+            }
         }
         else
         {
