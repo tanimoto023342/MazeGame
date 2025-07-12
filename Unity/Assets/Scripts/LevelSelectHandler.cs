@@ -183,18 +183,20 @@ public class LevelSelectHandler : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         }
 
+        //スコア表示機能
         GameObject scoreTextGO = new GameObject("HighScoreText");
         scoreTextGO.transform.SetParent(buttonGO.transform, false); // falseでローカル位置維持
         scoreTextGO.layer = buttonGO.layer;
 
         TMP_Text scoreTMP = scoreTextGO.AddComponent<TextMeshProUGUI>();
-        scoreTMP.fontSize = 30;
+        scoreTMP.fontSize = 50;
         scoreTMP.alignment = TextAlignmentOptions.Center;
         scoreTMP.color = Color.yellow;
 
-        int highScore = PlayerPrefs.GetInt("HighScore_Level" + levelNumber, 0);
-        scoreTMP.text = "HS: " + highScore.ToString();
+        int highScore = PlayerPrefs.GetInt("HighScore_Level" + levelNumber, 0); //ここでスコア取得
+        scoreTMP.text = "Best: " + highScore.ToString();
 
+        //レイアウト
         RectTransform scoreRT = scoreTextGO.GetComponent<RectTransform>();
         scoreRT.anchorMin = new Vector2(0.5f, 0);
         scoreRT.anchorMax = new Vector2(0.5f, 0);
@@ -202,6 +204,7 @@ public class LevelSelectHandler : MonoBehaviour
         scoreRT.anchoredPosition = new Vector2(0, -10);
         scoreRT.sizeDelta = new Vector2(100, 30);
         scoreRT.localScale = Vector3.one;
+        //ここまでスコア表示機能
     }
 
     /// <summary>
