@@ -17,6 +17,11 @@ public static class SceneHandler
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
+    public static void LoadCreditScene()
+    {
+        SceneManager.LoadScene("Credit", LoadSceneMode.Single);
+    }
+
     public static void LoadLevelSelectScene(bool isFreeWorldMode)
     {
         LevelData.IsFreeWorldMode = isFreeWorldMode;
