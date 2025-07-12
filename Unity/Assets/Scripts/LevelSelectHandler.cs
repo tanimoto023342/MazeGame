@@ -1,9 +1,10 @@
+using System.IO;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-
 /// <summary>
 /// Handles Level Select menu GUI components, their construction and management including pagination buttons
 /// and page counting
@@ -16,6 +17,7 @@ public class LevelSelectHandler : MonoBehaviour
     public Button previousPageBtn;
     public Button nextPageBtn;
     public Sprite[] levelSelectBtnBG;
+    public Sprite[] levelSelectBtnGray;
     public Sprite freeWorldBtnBG;
     public Sprite[] levelSelectNumbers;
     public Sprite[] freeWorldNumbers;
@@ -31,8 +33,22 @@ public class LevelSelectHandler : MonoBehaviour
     private Button previousBtn;
     private Button nextBtn;
 
+    private string iscanplayfilepath;
+    public int iscanplaynum = 1;
+
     void Start()
     {
+        iscanplayfilepath = Environment.CurrentDirectory + "/Assets/Scripts/iscanplay.txt";
+        if (!File.Exists(iscanplayfilepath))
+        {
+            File.WriteAllText(iscanplayfilepath, iscanplaynum.ToString());
+        }
+        else
+        {
+            iscanplaynum = int.Parse(File.ReadAllText(iscanplayfilepath));
+        }
+        Debug.Log(iscanplayfilepath);
+        Debug.Log(iscanplaynum);
         audioSources.Add(MenuHandler.GenerateAudioSource("Sounds/click1", "Audio Click Source"));
         audioSources.Add(MenuHandler.GenerateAudioSource("Sounds/rollover1", "Audio Enter Source"));
 
@@ -76,7 +92,7 @@ public class LevelSelectHandler : MonoBehaviour
 
         TextMeshProUGUI textComp = titleGO.AddComponent<TextMeshProUGUI>();
         textComp.text = LevelData.IsFreeWorldMode ? "FREE WORLD" : "LEVEL SELECT";
-        textComp.font = (TMP_FontAsset)Resources.Load("UI/Electronic Highway Sign SDF");
+        textComp.font = (TMP_FontAsset)Resources.Load("TextMesh Pro/Fonts/Jersey20-Regular SDF");
         textComp.fontSize = 100;
         textComp.fontStyle = FontStyles.Bold;
         textComp.alignment = TextAlignmentOptions.Center;
@@ -130,7 +146,8 @@ public class LevelSelectHandler : MonoBehaviour
 
         // Image
         Image buttonImg = buttonGO.AddComponent<Image>();
-        buttonImg.sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG[levelNumber-1];
+        //buttonImg.sprite = LevelData.IsFreeWorldMode ? freeWorldBtnBG : levelSelectBtnBG[levelNumber-1];
+        buttonImg.sprite = (iscanplaynum >= levelNumber) ? levelSelectBtnBG[levelNumber - 1] : levelSelectBtnGray[levelNumber - 1];
         buttonImg.color = new Color(214, 214, 214, 255);
 
         // Button
@@ -191,6 +208,7 @@ public class LevelSelectHandler : MonoBehaviour
     void ConfigurePrevNextButtons()
     {
         return;
+        /*
         previousBtn = Instantiate(previousPageBtn, canvasGO.transform);
         nextBtn = Instantiate(nextPageBtn, canvasGO.transform);
 
@@ -217,6 +235,7 @@ public class LevelSelectHandler : MonoBehaviour
             NextPage();
             HandleFirstLastPage();
         });
+        */
     }
 
     void SetButtonTransform(Button btn, float posX, float posY)

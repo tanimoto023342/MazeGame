@@ -417,6 +417,15 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 147e19a62c3448a4ab0e3a2932ce4bbe, type: 3}
   - {fileID: 21300000, guid: 610105508de4d1b4f9df5bf38e1c78a4, type: 3}
   - {fileID: 21300000, guid: fdf04b36d072f804bb45a602e63a8019, type: 3}
+  levelSelectBtnGray:
+  - {fileID: 21300000, guid: 3806da501884b1342ba3a3b5b51ea7d7, type: 3}
+  - {fileID: 21300000, guid: f981df397e6aa0742920c59f9c85784a, type: 3}
+  - {fileID: 21300000, guid: 09887fd6a4d9bbd4e9f585398dcb4f4e, type: 3}
+  - {fileID: 21300000, guid: cc8d1c31da5b8f745a822f6b19cf597f, type: 3}
+  - {fileID: 21300000, guid: 4a4546a785e3524439744974d41aad56, type: 3}
+  - {fileID: 21300000, guid: b780a625e0c746440a62af55692a1ad4, type: 3}
+  - {fileID: 21300000, guid: 39dbc65f1cc37024ca51132d0d285152, type: 3}
+  - {fileID: 21300000, guid: 471ef94d2d877bc4391404d3dc9013ff, type: 3}
   freeWorldBtnBG: {fileID: 21300000, guid: 751e62f4c90316e4c9d2573a4240d3c9, type: 3}
   levelSelectNumbers:
   - {fileID: 21300000, guid: f86448eb3b6b7984fbc581cac2d03d6f, type: 3}

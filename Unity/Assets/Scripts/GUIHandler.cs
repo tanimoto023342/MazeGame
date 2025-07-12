@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 /// <summary>
 /// Handles Game scene GUI Components, End Game Menu, Total Score calculaction 
@@ -39,6 +41,10 @@ public class GUIHandler : MonoBehaviour
     int defaultTimeLimit = 20; // To be edited in Editor
     int currentTime;
 
+    private TextAsset iscanplayfile;
+    private string iscanplayfilepath;
+    private int iscanplaynum = 1;
+
     GameManager gm;
 
     void Awake()
@@ -53,6 +59,16 @@ public class GUIHandler : MonoBehaviour
 
     void Start()
     {
+        iscanplayfilepath = Environment.CurrentDirectory + "/Assets/Scripts/iscanplay.txt";
+        if (!File.Exists(iscanplayfilepath))
+        {
+            File.WriteAllText(iscanplayfilepath, iscanplaynum.ToString());
+        }
+        else
+        {
+            iscanplaynum = int.Parse(File.ReadAllText(iscanplayfilepath));
+        }
+        Debug.Log(iscanplaynum);
         if (isDebug)
             LevelData.TimeLimit = defaultTimeLimit;
 
@@ -117,6 +133,9 @@ public class GUIHandler : MonoBehaviour
             endGameText.GetComponent<TMP_Text>().text = "YOU WON!";
             totalScore.text = CalculateTotalScore();
             levelHandler.PlayWinningAudio();
+            iscanplaynum++;
+            //iscanplayÇ…è„èëÇ´
+            File.WriteAllText(iscanplayfilepath, iscanplaynum.ToString());
         }
         else
         {
