@@ -28,6 +28,7 @@ public class GUIHandler : MonoBehaviour
     public Button startFlowButton;
 
     public TMP_Text timerText;
+    public Slider timerSlider;//’Ç‰Á
 
     // After the Flow starts EndGame starts
     public static bool IsEndGame { get; set; } = false;
@@ -62,6 +63,13 @@ public class GUIHandler : MonoBehaviour
 
         timerText.text = LevelData.TimeLimit.ToString();
         StartCoroutine("CountdownTimer");
+        timerSlider.maxValue = LevelData.TimeLimit;
+        timerSlider.value = 0;
+    }
+
+    void Update()
+    {
+        if(!gm.flowsStarted)timerSlider.value += 1 * Time.deltaTime;
     }
 
     /// <summary>
@@ -196,9 +204,13 @@ public class GUIHandler : MonoBehaviour
     {
         // Minimum Score: 0
         // Maximum Score: 10000
-        double weight = LevelData.IsArcadeMode ? 1.0 : LevelSelectHandler.MaxTimeLimit / (double)LevelData.TimeLimit;
-        double notNormalizedScore = currentTime / (double)LevelData.TimeLimit / weight;
+
+        //double weight = LevelData.IsArcadeMode ? 1.0 : LevelSelectHandler.MaxTimeLimit / (double)LevelData.TimeLimit;
+        double weight = LevelData.IsArcadeMode ? 1.0 : 1.0 + (LevelData.LevelNumber - 1.0) / 10.0;
+        //double notNormalizedScore = currentTime / (double)LevelData.TimeLimit / weight;
+        double notNormalizedScore = 500 * (LevelData.TimeLimit - timerSlider.value) * weight;
         int score = Mathf.RoundToInt((float)(notNormalizedScore * MAXIMUM_SCORE));
+        
         return score.ToString();
     }
 
