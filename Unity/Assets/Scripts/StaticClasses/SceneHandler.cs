@@ -23,7 +23,7 @@ public static class SceneHandler
 
     public static void LoadLevelSelectScene(bool isFreeWorldMode)
     {
-        LevelData.IsFreeWorldMode = isFreeWorldMode;
+        LevelData.IsFreeWorldMode = /*!isFreeWorldMode*/false;
         SceneManager.LoadScene("LevelSelect", LoadSceneMode.Single);
     }
 
@@ -75,7 +75,7 @@ public static class SceneHandler
         LevelData.defaultEnd = null;
         LevelData.GamePieces = null;
 
-        if (LevelData.IsFreeWorldMode)
+        if (/*LevelData.IsFreeWorldMode &&*/ false)
             LevelData.lvlData = Resources.Load<TextAsset>("FreeWorldLevels/Level" + levelNumber.ToString())
                 .text.Split(Environment.NewLine);
         else
@@ -92,7 +92,7 @@ public static class SceneHandler
             SceneManager.LoadScene("Game", LoadSceneMode.Single);
         else
         {
-            if (LevelData.IsFreeWorldMode)
+            if (/*LevelData.IsFreeWorldMode &&*/ false)
             {
                 tutorialsPlayed[2] = true;
                 SceneManager.LoadScene("Tutorial", LoadSceneMode.Single);

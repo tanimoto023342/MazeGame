@@ -72,8 +72,8 @@ public class GUIHandler : MonoBehaviour
         if (isDebug)
             LevelData.TimeLimit = defaultTimeLimit;
 
-        bool isLastLevel = LevelData.LevelNumber == 
-            (LevelData.IsFreeWorldMode ? SceneHandler.FreeWorldLevelCount : SceneHandler.LevelSelectLevelCount);
+        bool isLastLevel = LevelData.LevelNumber ==
+            /*(LevelData.IsFreeWorldMode ? SceneHandler.FreeWorldLevelCount :*/ SceneHandler.LevelSelectLevelCount;//);
         if (LevelData.IsArcadeMode || isLastLevel)
      //       nextLevelButton.gameObject.SetActive(false);
 
@@ -166,7 +166,7 @@ public class GUIHandler : MonoBehaviour
         levelHandler.ResetLevel();
         timerText.text = LevelData.TimeLimit.ToString();
 
-        if (LevelData.IsFreeWorldMode)
+        if (LevelData.IsFreeWorldMode ||true)
         {
             SceneHandler.LoadLevel(LevelData.LevelNumber);
         }
