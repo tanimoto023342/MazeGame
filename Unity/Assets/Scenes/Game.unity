@@ -512,6 +512,7 @@ MonoBehaviour:
   backTileEnd: {fileID: 21300000, guid: 944c2121b1fa2f94d957f3f56bb8e1ca, type: 3}
   pipeRotationAudio: {fileID: 3167966525210941805}
   winningAudio: {fileID: 7624317611607508692}
+  gameOverAudio: {fileID: 553988747}
   activePipe: {fileID: 0}
   activePipeHandler: {fileID: 0}
   boardSize: 10
@@ -1654,6 +1655,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552322744}
   m_CullTransparentMesh: 1
+--- !u!82 &553988747 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3151487590251972772, guid: bd72d9e43fa974aa59379a2cb4776243, type: 3}
+  m_PrefabInstance: {fileID: 3151487590771751471}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &578034480
 GameObject:
   m_ObjectHideFlags: 0
@@ -5173,6 +5179,63 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1001 &3151487590771751471
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3151487590251972771, guid: bd72d9e43fa974aa59379a2cb4776243, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3151487590251972771, guid: bd72d9e43fa974aa59379a2cb4776243, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3151487590251972771, guid: bd72d9e43fa974aa59379a2cb4776243, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3151487590251972771, guid: bd72d9e43fa974aa59379a2cb4776243, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3151487590251972771, guid: bd72d9e43fa974aa59379a2cb4776243, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3151487590251972771, guid: bd72d9e43fa974aa59379a2cb4776243, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3151487590251972771, guid: bd72d9e43fa974aa59379a2cb4776243, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3151487590251972771, guid: bd72d9e43fa974aa59379a2cb4776243, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3151487590251972771, guid: bd72d9e43fa974aa59379a2cb4776243, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3151487590251972771, guid: bd72d9e43fa974aa59379a2cb4776243, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3151487590251972771, guid: bd72d9e43fa974aa59379a2cb4776243, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3151487590251972773, guid: bd72d9e43fa974aa59379a2cb4776243, type: 3}
+      propertyPath: m_Name
+      value: Auido Gameover Source
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bd72d9e43fa974aa59379a2cb4776243, type: 3}
 --- !u!82 &3167966525210941805 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8841922601446497692, guid: ea1639102f65b21479abb49c79abafae, type: 3}
