@@ -183,11 +183,15 @@ public class LevelSelectHandler : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         }
 
+        //セレクト画面アニメーション
+        buttonGO.AddComponent<HoverScaler>();
+
         //スコア表示機能
         GameObject scoreTextGO = new GameObject("HighScoreText");
         scoreTextGO.transform.SetParent(buttonGO.transform, false); // falseでローカル位置維持
         scoreTextGO.layer = buttonGO.layer;
 
+        //ここのフォントを変えたい
         TMP_Text scoreTMP = scoreTextGO.AddComponent<TextMeshProUGUI>();
         scoreTMP.fontSize = 50;
         scoreTMP.alignment = TextAlignmentOptions.Center;
@@ -205,6 +209,7 @@ public class LevelSelectHandler : MonoBehaviour
         scoreRT.sizeDelta = new Vector2(100, 30);
         scoreRT.localScale = Vector3.one;
         //ここまでスコア表示機能
+
     }
 
     /// <summary>
