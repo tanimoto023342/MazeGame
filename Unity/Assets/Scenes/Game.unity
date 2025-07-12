@@ -2043,6 +2043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6433d44d26fc2dd4490d6cd493bbd097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flowsStarted: 0
 --- !u!4 &616749217
 Transform:
   m_ObjectHideFlags: 0
@@ -2118,6 +2119,7 @@ MonoBehaviour:
   startFlowButton: {fileID: 349450057}
   timerText: {fileID: 392351580}
   timerSlider: {fileID: 1171382146}
+  gameover: {fileID: 916323745}
   isDebug: 0
   defaultTimeLimit: 20
 --- !u!1 &636430563

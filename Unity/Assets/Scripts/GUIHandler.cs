@@ -5,6 +5,9 @@ using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
+using Slider = UnityEngine.UI.Slider;
 
 /// <summary>
 /// Handles Game scene GUI Components, End Game Menu, Total Score calculaction 
@@ -31,6 +34,7 @@ public class GUIHandler : MonoBehaviour
 
     public TMP_Text timerText;
     public Slider timerSlider;//追加
+    public GameObject gameover;
 
     // After the Flow starts EndGame starts
     public static bool IsEndGame { get; set; } = false;
@@ -142,6 +146,7 @@ public class GUIHandler : MonoBehaviour
             endGameText.name = "You Lost";
             endGameText.GetComponent<TMP_Text>().text = "YOU LOST!";
             totalScore.text = "0"; // If the player looses the remaining Timer is unnecessary
+            gameover.GetComponent<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("UI/ゲームオーバー");
         }
 
         endGameMenu.SetActive(true);
