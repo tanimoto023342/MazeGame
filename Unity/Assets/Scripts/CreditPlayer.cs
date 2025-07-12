@@ -9,29 +9,12 @@ using UnityEngine.Video;
 /// </summary>
 public class CreditPlayer : MonoBehaviour
 {
-    [SerializeField] string videoFileName;
-
     private void Start()
     {
-        PlayVideo();
     }
 
-    public void PlayVideo()
+    public void BackToMainMenu()
     {
-        VideoPlayer videoPlayer = GetComponent<VideoPlayer>();
-        
-        if (videoPlayer)
-        {
-            videoFileName = LevelData.IsArcadeMode ? "arcade-tutorial.mp4" : 
-                (LevelData.IsFreeWorldMode ? "free-world-tutorial.mp4" : "level-select-tutorial.mp4");
-            string videoPath = System.IO.Path.Combine(Application.streamingAssetsPath, videoFileName);
-            videoPlayer.url = videoPath;
-            videoPlayer.Play();
-        }
-    }
-
-    public void SkipTutorial()
-    {
-        SceneManager.LoadScene("Game", LoadSceneMode.Single);
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 }
