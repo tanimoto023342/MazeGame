@@ -33,7 +33,7 @@ public class GUIHandler : MonoBehaviour
     public Button startFlowButton;
 
     public TMP_Text timerText;
-    public Slider timerSlider;//ï¿½Ç‰ï¿½
+    public Slider timerSlider;//???
     public GameObject gameover;
 
     // After the Flow starts EndGame starts
@@ -138,7 +138,7 @@ public class GUIHandler : MonoBehaviour
             string score = CalculateTotalScore();
             totalScore.text = score;
             levelHandler.PlayWinningAudio();
-            //ï¿½Xï¿½Rï¿½Aï¿½Û‘ï¿½
+            //?X?R?A???
             int level = LevelData.LevelNumber;
             int currentScore = int.Parse(score);
             int previousScore = PlayerPrefs.GetInt("HighScore_Level" + level, 0);
@@ -153,8 +153,8 @@ public class GUIHandler : MonoBehaviour
             endGameText.name = "You Lost";
             endGameText.GetComponent<TMP_Text>().text = "YOU LOST!";
             totalScore.text = "0"; // If the player looses the remaining Timer is unnecessary
-            gameover.GetComponent<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("UI/ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[");
-            levelHandler.PlayGameOverAudio(); // ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼æ™‚ã®BGMã‚’å†ç”Ÿ
+            gameover.GetComponent<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("UI/ƒQ[ƒ€ƒI[ƒo[");
+            levelHandler.PlayGameOverAudio(); // ƒQ[ƒ€ƒI[ƒo[‚ÌBGM‚ğÄ¶
         }
 
         endGameMenu.SetActive(true);
