@@ -23,6 +23,7 @@ public class LevelSelectHandler : MonoBehaviour
     public Sprite[] freeWorldNumbers;
 
     private GameObject canvasGO;
+    private GameObject innercanvas;
     private List<AudioSource> audioSources = new List<AudioSource>();
 
     [SerializeField]
@@ -53,6 +54,8 @@ public class LevelSelectHandler : MonoBehaviour
         audioSources.Add(MenuHandler.GenerateAudioSource("Sounds/rollover1", "Audio Enter Source"));
 
         canvasGO = MenuHandler.GenerateCanvasGO("Level Select Canvas");
+        innercanvas = MenuHandler.GenerateCanvasGO("Inner Canvas");
+        innercanvas.transform.parent = canvasGO.transform;
 
         GenerateTitleText();
 
@@ -86,7 +89,7 @@ public class LevelSelectHandler : MonoBehaviour
     {
         // Title Text
         GameObject titleGO = new GameObject();
-        titleGO.transform.parent = canvasGO.transform;
+        titleGO.transform.parent = innercanvas.transform;
         titleGO.layer = canvasGO.layer;
         titleGO.name = /*LevelData.IsFreeWorldMode ? "Free World" :*/ "Level Select";
 
@@ -114,7 +117,7 @@ public class LevelSelectHandler : MonoBehaviour
     {
         // Grid GO
         GameObject gridGO = new GameObject();
-        gridGO.transform.parent = canvasGO.transform;
+        gridGO.transform.parent = innercanvas.transform;
         gridGO.layer = canvasGO.layer;
         gridGO.name = "Page " + pageID;
 
