@@ -34,6 +34,7 @@ public class GUIHandler : MonoBehaviour
 
     public TMP_Text timerText;
     public Slider timerSlider;//追加
+
     public GameObject gameover;
 
     // After the Flow starts EndGame starts
@@ -66,7 +67,8 @@ public class GUIHandler : MonoBehaviour
         if (isDebug)
             LevelData.TimeLimit = defaultTimeLimit;
 
-        bool isLastLevel = LevelData.LevelNumber == 8;
+        bool isLastLevel = LevelData.LevelNumber ==
+            (LevelData.IsFreeWorldMode ? SceneHandler.FreeWorldLevelCount : SceneHandler.LevelSelectLevelCount);
         if (LevelData.IsArcadeMode || isLastLevel)
      //       nextLevelButton.gameObject.SetActive(false);
 
@@ -127,17 +129,11 @@ public class GUIHandler : MonoBehaviour
             string score = CalculateTotalScore();
             totalScore.text = score;
             levelHandler.PlayWinningAudio();
-            //iscanplayに上書き
+
             PlayerPrefs.SetInt("iscanplaynum", Math.Max(iscanplaynum, LevelData.LevelNumber+1));
             iscanplaynum++;
             //iscanplayに上書き
-<<<<<<< Updated upstream
             PlayerPrefs.SetInt("iscanplaynum", iscanplaynum);
-=======
-            File.WriteAllText(iscanplayfilepath, iscanplaynum.ToString());
-
->>>>>>> Stashed changes
-            //スコア保存
             int level = LevelData.LevelNumber;
             int currentScore = int.Parse(score);
             int previousScore = PlayerPrefs.GetInt("HighScore_Level" + level, 0);
@@ -153,11 +149,8 @@ public class GUIHandler : MonoBehaviour
             endGameText.GetComponent<TMP_Text>().text = "YOU LOST!";
             totalScore.text = "0"; // If the player looses the remaining Timer is unnecessary
             gameover.GetComponent<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("UI/ゲームオーバー");
-<<<<<<< Updated upstream
             levelHandler.PlayGameOverAudio();
-=======
-            levelHandler.PlayGameOverAudio(); // 繧ｲ繝ｼ繝繧ｪ繝ｼ繝舌・譎ゅ・BGM繧貞・逕・
->>>>>>> Stashed changes
+
         }
 
         endGameMenu.SetActive(true);
