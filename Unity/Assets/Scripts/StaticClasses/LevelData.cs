@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,9 +10,9 @@ public enum Liquid
 /// <summary>
 /// Public enum of Pipe types (last is always EMPTY)
 /// </summary>
-public enum PipeType//áŠQ•¨‚Æ‚µ‚Äobstacle‚ğ’Ç‰Á
+public enum PipeType//éšœå®³ç‰©ã¨ã—ã¦obstacleã‚’è¿½åŠ 
 {
-    Straight, Round, ThreeWay, Cross, EMPTY, Obstacle
+    Straight, Round, ThreeWay, Cross, Obstacle, EMPTY
 }
 
 public enum Difficulty
@@ -359,7 +359,7 @@ public static class LevelData
         map.Add(CellWalls.LEFT | CellWalls.UP | CellWalls.RIGHT,
             new List<PipeType> { PipeType.Straight, PipeType.Round });
 
-        // 4 Walls(’Ç‰Á)
+        // 4 Walls(è¿½åŠ )
         map.Add(CellWalls.UP | CellWalls.RIGHT | CellWalls.DOWN | CellWalls.LEFT,
             new List<PipeType> { PipeType.Obstacle });
     }

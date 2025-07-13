@@ -66,8 +66,7 @@ public class GUIHandler : MonoBehaviour
         if (isDebug)
             LevelData.TimeLimit = defaultTimeLimit;
 
-        bool isLastLevel = LevelData.LevelNumber ==
-            /*(LevelData.IsFreeWorldMode ? SceneHandler.FreeWorldLevelCount :*/ SceneHandler.LevelSelectLevelCount;//);
+        bool isLastLevel = LevelData.LevelNumber == 8;
         if (LevelData.IsArcadeMode || isLastLevel)
      //       nextLevelButton.gameObject.SetActive(false);
 
@@ -132,7 +131,12 @@ public class GUIHandler : MonoBehaviour
             PlayerPrefs.SetInt("iscanplaynum", Math.Max(iscanplaynum, LevelData.LevelNumber+1));
             iscanplaynum++;
             //iscanplayに上書き
+<<<<<<< Updated upstream
             PlayerPrefs.SetInt("iscanplaynum", iscanplaynum);
+=======
+            File.WriteAllText(iscanplayfilepath, iscanplaynum.ToString());
+
+>>>>>>> Stashed changes
             //スコア保存
             int level = LevelData.LevelNumber;
             int currentScore = int.Parse(score);
@@ -149,7 +153,11 @@ public class GUIHandler : MonoBehaviour
             endGameText.GetComponent<TMP_Text>().text = "YOU LOST!";
             totalScore.text = "0"; // If the player looses the remaining Timer is unnecessary
             gameover.GetComponent<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("UI/ゲームオーバー");
+<<<<<<< Updated upstream
             levelHandler.PlayGameOverAudio();
+=======
+            levelHandler.PlayGameOverAudio(); // 繧ｲ繝ｼ繝繧ｪ繝ｼ繝舌・譎ゅ・BGM繧貞・逕・
+>>>>>>> Stashed changes
         }
 
         endGameMenu.SetActive(true);

@@ -167,7 +167,8 @@ public class LevelHandler : MonoBehaviour
                 {
                     // If the level is in free world mode, then we want to randomly select a pipe without replacement, unless it's a start or end pipe.
                     if (LevelData.Starts.Select(kv => kv.Value).Any(v => v.Contains(new Position(x, y + offset))) ||
-                        LevelData.Ends.Select(kv => kv.Value).Any(v => v.Contains(new Position(x, y + offset))))
+                        LevelData.Ends.Select(kv => kv.Value).Any(v => v.Contains(new Position(x, y + offset))) || 
+                        pipes[x, y].Type == PipeType.Obstacle)
                     {
                         pipe = pipes[x, y];
                         pipesList.Remove(pipe);
@@ -185,6 +186,7 @@ public class LevelHandler : MonoBehaviour
                 }
 
                 // Instantiate the pipe prefab.
+                if (pipe.Type == PipeType.Obstacle) Debug.Log("Obstacle");
                 GameObject pipePrefab = pipe.Liquid == Liquid.Water ? waterPipePrefabs[(int)pipe.Type] : lavaPipePrefabs[(int)pipe.Type];
                 GameObject pipeGO = Instantiate(pipePrefab);
 

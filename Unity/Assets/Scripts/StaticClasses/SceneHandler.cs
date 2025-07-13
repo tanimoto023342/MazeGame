@@ -21,13 +21,25 @@ public static class SceneHandler
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
+<<<<<<< Updated upstream
 
     public static void LoadCreditScene()
     {
         SceneManager.LoadScene("Credit", LoadSceneMode.Single);
     }
 
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
     public static void LoadLevelSelectScene(bool isFreeWorldMode, bool deleteiscanplaynumdata = false)
+=======
+    public static void LoadCreditScene()
+    {
+        SceneManager.LoadScene("Credit", LoadSceneMode.Single);
+    }
+
+    public static void LoadLevelSelectScene(bool isFreeWorldMode)
+>>>>>>> b60ccb71efd936513bf75e376c007cea8d766c25
     {
         if (deleteiscanplaynumdata)
         {

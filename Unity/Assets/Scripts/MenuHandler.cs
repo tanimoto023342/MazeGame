@@ -27,10 +27,20 @@ public class MenuHandler : MonoBehaviour
 
         GenerateMenuBtn("Level Select", 0, 224, () => SceneHandler.LoadLevelSelectScene(isFreeWorldMode: false));
         GenerateMenuBtn("Arcade", 0, 15, SceneHandler.LoadArcadeGameScene);
+<<<<<<< Updated upstream
         //ãƒœã‚¿ãƒ³ã‚’ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆã™ã‚‹ã“ã¨ã§ç„¡åŠ¹åŒ–
         GenerateMenuBtn("New Game", 0, -194, () => SceneHandler.LoadLevelSelectScene(isFreeWorldMode: true,deleteiscanplaynumdata: true));
         //GenerateMenuBtn("Free World", 0, -194, () => SceneHandler.LoadLevelSelectScene(isFreeWorldMode: true));
         GenerateMenuBtn("Credit", 0, -194, () => SceneHandler.LoadCreditScene());
+=======
+        //ƒ{ƒ^ƒ“‚ğƒRƒƒ“ƒgƒAƒEƒg‚·‚é‚±‚Æ‚Å–³Œø‰»
+<<<<<<< HEAD
+        GenerateMenuBtn("New Game", 0, -194, () => SceneHandler.LoadLevelSelectScene(isFreeWorldMode: true,deleteiscanplaynumdata: true));
+=======
+        //GenerateMenuBtn("Free World", 0, -194, () => SceneHandler.LoadLevelSelectScene(isFreeWorldMode: true));
+        GenerateMenuBtn("Credit", 0, -194, () => SceneHandler.LoadCreditScene());
+>>>>>>> b60ccb71efd936513bf75e376c007cea8d766c25
+>>>>>>> Stashed changes
         ConfigureDropdownGO();
 
         GenerateTitleText();

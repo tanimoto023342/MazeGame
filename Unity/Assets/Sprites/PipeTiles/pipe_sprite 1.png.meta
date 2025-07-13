@@ -187,6 +187,32 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: pipe_sprite 1_4
+      rect:
+        serializedVersion: 2
+        x: 1948
+        y: 0
+        width: 487
+        height: 487
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+<<<<<<< Updated upstream
+      spriteID: 8ce813f9f3fe8c94f8a3dfe394bf585e
+      internalID: -1043325795
+=======
+      spriteID: e1c98edd8da17f44a99860df0fcf66c6
+      internalID: -1590805924
+>>>>>>> Stashed changes
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -202,6 +228,11 @@ TextureImporter:
       pipe_sprite 1_3: -278330512
       pipe_sprite 1_2: 995696820
       pipe_sprite 1_0: -608682712
+<<<<<<< Updated upstream
+      pipe_sprite 1_4: -1043325795
+=======
+      pipe_sprite 1_4: -1590805924
+>>>>>>> Stashed changes
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
