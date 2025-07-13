@@ -168,7 +168,7 @@ public class GUIHandler : MonoBehaviour
             endGameText.name = "You Lost";
             endGameText.GetComponent<TMP_Text>().text = "YOU LOST!";
             totalScore.text = "0"; // If the player looses the remaining Timer is unnecessary
-            gameover.GetComponent<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("UI/�Q�[���I�[�o�[");
+            gameover.GetComponent<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("UI/ゲームオーバー");
             levelHandler.PlayGameOverAudio(); // �Q�[���I�[�o�[����BGM���Đ�
         }
 
@@ -283,6 +283,7 @@ public class GUIHandler : MonoBehaviour
             // ステージ5-8のBGMが再生中なら停止
             if (gameBGMStage5to8 != null && gameBGMStage5to8.isPlaying)
             {
+                Debug.Log("5-8停止");
                 gameBGMStage5to8.Stop();
             }
 
@@ -298,6 +299,7 @@ public class GUIHandler : MonoBehaviour
             // ステージ1-4のBGMが再生中なら停止
             if (gameBGM != null && gameBGM.isPlaying)
             {
+                Debug.Log("1-4停止");
                 gameBGM.Stop();
             }
 
@@ -306,6 +308,9 @@ public class GUIHandler : MonoBehaviour
             {
                 gameBGMStage5to8.Play();
             }
+        }
+        else{
+            Debug.Log("例外に分岐しました");
         }
     }
 }
