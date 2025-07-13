@@ -20,6 +20,7 @@ public class LevelSelectHandler : MonoBehaviour
     public Sprite[] levelSelectBtnGray;
     public Sprite freeWorldBtnBG;
     public Sprite[] levelSelectNumbers;
+    public Sprite[] levelSelectNumbersGray;
     public Sprite[] freeWorldNumbers;
 
     private GameObject canvasGO;
@@ -33,21 +34,11 @@ public class LevelSelectHandler : MonoBehaviour
     private Button previousBtn;
     private Button nextBtn;
 
-    private string iscanplayfilepath;
-    public int iscanplaynum = 1;
+    public static int iscanplaynum = 1;
 
     void Start()
     {
-        iscanplayfilepath = Environment.CurrentDirectory + "/Assets/Scripts/iscanplay.txt";
-        if (!File.Exists(iscanplayfilepath))
-        {
-            File.WriteAllText(iscanplayfilepath, iscanplaynum.ToString());
-        }
-        else
-        {
-            iscanplaynum = int.Parse(File.ReadAllText(iscanplayfilepath));
-        }
-        Debug.Log(iscanplayfilepath);
+        iscanplaynum = PlayerPrefs.GetInt("iscanplaynum",1);
         Debug.Log(iscanplaynum);
         audioSources.Add(MenuHandler.GenerateAudioSource("Sounds/click1", "Audio Click Source"));
         audioSources.Add(MenuHandler.GenerateAudioSource("Sounds/rollover1", "Audio Enter Source"));
@@ -191,8 +182,9 @@ public class LevelSelectHandler : MonoBehaviour
             imageNumberGO.name = literal.ToString();
 
             Image numberImg = imageNumberGO.AddComponent<Image>();
-            numberImg.sprite = /*LevelData.IsFreeWorldMode ? 
-                freeWorldNumbers[literal - '0'] :*/ levelSelectNumbers[literal - '0'];
+            //numberImg.sprite = /*LevelData.IsFreeWorldMode ? 
+            //freeWorldNumbers[literal - '0'] :*/ levelSelectNumbers[literal - '0'];
+            numberImg.sprite = (iscanplaynum >= levelNumber) ? levelSelectNumbers[literal - '0'] : levelSelectNumbersGray[literal - '0'];
             numberImg.color = Color.white;
 
             // Button Text Component relative position
@@ -285,7 +277,7 @@ public class LevelSelectHandler : MonoBehaviour
     void ConfigureMainMenuButton()
     {
         Button mainMenuBtn = Instantiate(mainMenuBtnPrefab, canvasGO.transform);
-        mainMenuBtn.GetComponent<Image>().sprite = /*LevelData.IsFreeWorldMode ? freeWorldBtnBG :*/ levelSelectBtnBG[0];
+        mainMenuBtn.GetComponent<Image>().sprite = /*LevelData.IsFreeWorldMode ? freeWorldBtnBG :*/ Resources.Load<Sprite>("UI/BOX");
         SetButtonTransform(mainMenuBtn, 137.3f, -65);
         MenuHandler.ConfigureButtonSounds(ref mainMenuBtn, audioSources[0].Play, audioSources[1].Play);
         mainMenuBtn.onClick.AddListener(SceneHandler.LoadMainMenuScene);

@@ -428,16 +428,25 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 471ef94d2d877bc4391404d3dc9013ff, type: 3}
   freeWorldBtnBG: {fileID: 21300000, guid: 751e62f4c90316e4c9d2573a4240d3c9, type: 3}
   levelSelectNumbers:
-  - {fileID: 21300000, guid: f86448eb3b6b7984fbc581cac2d03d6f, type: 3}
-  - {fileID: 21300000, guid: 4974684f902e6074382cd861fb0dc2fa, type: 3}
-  - {fileID: 21300000, guid: 53e151e56013b7146b7096aa0845eb83, type: 3}
-  - {fileID: 21300000, guid: ef04fe1bb5347be4eae4feafea83158c, type: 3}
-  - {fileID: 21300000, guid: a164fd0e5f9b1bc4b9dacdc403ac520b, type: 3}
-  - {fileID: 21300000, guid: 990e90445ee6f6b4dbdf469726bac7f3, type: 3}
-  - {fileID: 21300000, guid: b26a96177a06f654982e04dbc8ffbf2a, type: 3}
-  - {fileID: 21300000, guid: 8d5d1b1667b4c474480a7758f7fcdbdf, type: 3}
-  - {fileID: 21300000, guid: 6eff7a2803fff2e4b815b19c57b754d5, type: 3}
-  - {fileID: 21300000, guid: 0744cd0684b9ebf4198b23e8c555df43, type: 3}
+  - {fileID: 21300000, guid: f79fb58929a60cd479bde3c5328da4de, type: 3}
+  - {fileID: 21300000, guid: 7a3337c51ff64234084fade2d2c0befe, type: 3}
+  - {fileID: 21300000, guid: c97ffda0718933c4ab6658dcd7473bb1, type: 3}
+  - {fileID: 21300000, guid: f12fb502d0de3554c8ac23280a52207e, type: 3}
+  - {fileID: 21300000, guid: 96ac5470e5a73094cad222fa40779fb9, type: 3}
+  - {fileID: 21300000, guid: f7a5e4d9821a44c4e897ba3a1b82ac17, type: 3}
+  - {fileID: 21300000, guid: 9b93c955b4dbaa14f967ece88e7d6b62, type: 3}
+  - {fileID: 21300000, guid: 274f57a6ca8215145aee56707f4f0a86, type: 3}
+  - {fileID: 21300000, guid: 930553ebaea7e4542bec774f50601416, type: 3}
+  levelSelectNumbersGray:
+  - {fileID: 21300000, guid: f4132c869b42db94ab5061d334638288, type: 3}
+  - {fileID: 21300000, guid: d51cba483f9d6e7488da6de50eef0b34, type: 3}
+  - {fileID: 21300000, guid: 2f3072934546f464f89dd3e9442f1af9, type: 3}
+  - {fileID: 21300000, guid: 2be177a4ea5d965479b598c4f8f2d41e, type: 3}
+  - {fileID: 21300000, guid: a3603ed00b3c3c4499d577e03b06d980, type: 3}
+  - {fileID: 21300000, guid: ef0fbd679da87d840b87843288bbd03f, type: 3}
+  - {fileID: 21300000, guid: 4e65c96424716694f87b1a5a351cfd5f, type: 3}
+  - {fileID: 21300000, guid: c65f72b0a3819984d8c710094efcbd8b, type: 3}
+  - {fileID: 21300000, guid: 59e5b84c572dbd245a1872fbca770430, type: 3}
   freeWorldNumbers:
   - {fileID: 21300000, guid: 751654c6b8911a045bb5cf43c1fd5e3c, type: 3}
   - {fileID: 21300000, guid: 1f87b806756f5204dafcdc9fc6f53e57, type: 3}

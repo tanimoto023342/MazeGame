@@ -45,9 +45,8 @@ public class GUIHandler : MonoBehaviour
     int defaultTimeLimit = 20; // To be edited in Editor
     int currentTime;
 
-    private TextAsset iscanplayfile;
-    private string iscanplayfilepath;
-    private int iscanplaynum = 1;
+    public static int iscanplaynum = 1;
+    public bool deleteiscanplaynumdata = false;
 
     GameManager gm;
 
@@ -63,16 +62,15 @@ public class GUIHandler : MonoBehaviour
 
     void Start()
     {
-        iscanplayfilepath = Environment.CurrentDirectory + "/Assets/Scripts/iscanplay.txt";
-        if (!File.Exists(iscanplayfilepath))
+        if (deleteiscanplaynumdata)
         {
-            File.WriteAllText(iscanplayfilepath, iscanplaynum.ToString());
+            PlayerPrefs.DeleteKey("iscanplaynum");
+            iscanplaynum = 1;
         }
         else
         {
-            iscanplaynum = int.Parse(File.ReadAllText(iscanplayfilepath));
+        iscanplaynum = PlayerPrefs.GetInt("iscanplaynum", 1);
         }
-        Debug.Log(iscanplaynum);
         if (isDebug)
             LevelData.TimeLimit = defaultTimeLimit;
 
@@ -137,9 +135,8 @@ public class GUIHandler : MonoBehaviour
             endGameText.GetComponent<TMP_Text>().text = "YOU WON!";
             totalScore.text = CalculateTotalScore();
             levelHandler.PlayWinningAudio();
-            iscanplaynum++;
             //iscanplayÇ…è„èëÇ´
-            File.WriteAllText(iscanplayfilepath, iscanplaynum.ToString());
+            PlayerPrefs.SetInt("iscanplaynum", Math.Max(iscanplaynum, LevelData.LevelNumber+1));
         }
         else
         {

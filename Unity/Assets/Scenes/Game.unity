@@ -2120,8 +2120,9 @@ MonoBehaviour:
   timerText: {fileID: 392351580}
   timerSlider: {fileID: 1171382146}
   gameover: {fileID: 916323745}
-  isDebug: 0
+  isDebug: 1
   defaultTimeLimit: 20
+  deleteiscanplaynumdata: 0
 --- !u!1 &636430563
 GameObject:
   m_ObjectHideFlags: 0

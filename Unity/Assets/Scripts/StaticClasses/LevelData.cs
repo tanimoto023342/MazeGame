@@ -10,9 +10,9 @@ public enum Liquid
 /// <summary>
 /// Public enum of Pipe types (last is always EMPTY)
 /// </summary>
-public enum PipeType
+public enum PipeType//è·äQï®Ç∆ÇµÇƒobstacleÇí«â¡
 {
-    Straight, Round, ThreeWay, Cross, EMPTY
+    Straight, Round, ThreeWay, Cross, EMPTY, Obstacle
 }
 
 public enum Difficulty
@@ -89,6 +89,8 @@ public static class LevelData
     /// The current mode of the game: "Free World".
     /// </summary>
     public static bool IsFreeWorldMode { get; set; } = false;
+
+    public static bool deleteiscanplaynumdata { get; set; } = false;
 
     /// <summary>
     /// The level number of the current game.
@@ -356,6 +358,10 @@ public static class LevelData
             new List<PipeType> { PipeType.Straight, PipeType.Round });
         map.Add(CellWalls.LEFT | CellWalls.UP | CellWalls.RIGHT,
             new List<PipeType> { PipeType.Straight, PipeType.Round });
+
+        // 4 Walls(í«â¡)
+        map.Add(CellWalls.UP | CellWalls.RIGHT | CellWalls.DOWN | CellWalls.LEFT,
+            new List<PipeType> { PipeType.Obstacle });
     }
 
 }

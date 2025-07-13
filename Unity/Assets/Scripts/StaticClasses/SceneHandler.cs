@@ -13,16 +13,22 @@ public static class SceneHandler
     public static int FreeWorldLevelCount = Resources.LoadAll("FreeWorldLevels", typeof(TextAsset)).Length;
     static bool[] tutorialsPlayed = new bool[3];
 
-    private static string iscanplayfilepath;
     public  static int iscanplaynum = 1;
+    public static bool deleteiscanplaynumdata = false;
 
     public static void LoadMainMenuScene()
     {
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
-    public static void LoadLevelSelectScene(bool isFreeWorldMode)
+    public static void LoadLevelSelectScene(bool isFreeWorldMode, bool deleteiscanplaynumdata = false)
     {
+        if (deleteiscanplaynumdata)
+        {
+            PlayerPrefs.DeleteKey("iscanplaynum");
+            iscanplaynum = PlayerPrefs.GetInt("iscanplaynum", 1);
+        }
+        Debug.Log("iscanplaynum = " + iscanplaynum);
         LevelData.IsFreeWorldMode = /*!isFreeWorldMode*/false;
         SceneManager.LoadScene("LevelSelect", LoadSceneMode.Single);
     }
@@ -33,6 +39,7 @@ public static class SceneHandler
         PauseControl.GameIsPaused = false;
         LevelData.IsFreeWorldMode = false;
         LevelData.IsArcadeMode = true;
+        LevelData.deleteiscanplaynumdata = false;
         LevelData.Starts = new();
         LevelData.Ends = new();
         LevelData.defaultStart = null;
@@ -54,16 +61,8 @@ public static class SceneHandler
     }
 
     public static void LoadLevel(int levelNumber)
-    {
-        iscanplayfilepath = Environment.CurrentDirectory + "/Assets/Scripts/iscanplay.txt";
-        if (!File.Exists(iscanplayfilepath))
-        {
-            File.WriteAllText(iscanplayfilepath, iscanplaynum.ToString());
-        }
-        else
-        {
-            iscanplaynum = int.Parse(File.ReadAllText(iscanplayfilepath));
-        }
+    { 
+        iscanplaynum = PlayerPrefs.GetInt("iscanplaynum", 1);
         if (iscanplaynum < levelNumber) return;
         GUIHandler.IsEndGame = false;
         PauseControl.GameIsPaused = false;
