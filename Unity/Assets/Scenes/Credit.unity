@@ -983,7 +983,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -21.87999}
+  m_AnchoredPosition: {x: 0, y: -21.880005}
   m_SizeDelta: {x: 900, y: -294.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1033333025
@@ -1100,8 +1100,8 @@ MonoBehaviour:
   m_text: "Original Game made by\ncorovcam\r\nRemade by\nShusuke Tanimoto\nJunichi
     Suzuki\nHinata Saitou\nSakamaki\nBGM:\nSpringin\u2019 Sound Stock\u69D8\u300CSF1\u300D\n\u68EE\u7530\u4EA4\u4E00\u69D8\u300C\u30B5\u30A4\u30D0\u30FC37\u300D\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7127259a7d5c3fa49b964c4ee9fafdcd, type: 2}
-  m_sharedMaterial: {fileID: -876090720473291879, guid: 7127259a7d5c3fa49b964c4ee9fafdcd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: daf970c6fc1fa3a4ca3ddfeae80a205c, type: 2}
+  m_sharedMaterial: {fileID: -876090720473291879, guid: daf970c6fc1fa3a4ca3ddfeae80a205c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1125,7 +1125,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.25
+  m_fontSize: 43.65
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
