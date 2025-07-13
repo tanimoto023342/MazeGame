@@ -1,8 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
+using Slider = UnityEngine.UI.Slider;
 
 /// <summary>
 /// Handles Game scene GUI Components, End Game Menu, Total Score calculaction
@@ -22,12 +27,14 @@ public class GUIHandler : MonoBehaviour
 
     public Button restartButton;
     public Button quitButton;
-    public Button nextLevelButton;
+//    public Button nextLevelButton;
     public Button pauseButton;
     public Button skipButton;
     public Button startFlowButton;
 
     public TMP_Text timerText;
+    public Slider timerSlider;//’Ç‰Á
+    public GameObject gameover;
 
     // After the Flow starts EndGame starts
     public static bool IsEndGame { get; set; } = false;
@@ -38,6 +45,10 @@ public class GUIHandler : MonoBehaviour
     int defaultTimeLimit = 20; // To be edited in Editor
     int currentTime;
 
+    private TextAsset iscanplayfile;
+    private string iscanplayfilepath;
+    private int iscanplaynum = 1;
+
     GameManager gm;
 
     void Awake()
@@ -45,23 +56,44 @@ public class GUIHandler : MonoBehaviour
         gm = GetComponent<GameManager>();
         restartButton.onClick.AddListener(RestartGame);
         quitButton.onClick.AddListener(GetBackToMainMenu);
-        nextLevelButton.onClick.AddListener(GoToNextLevel);
+   //     nextLevelButton.onClick.AddListener(GoToNextLevel);
         skipButton.onClick.AddListener(AccelerateFlow);
         startFlowButton.onClick.AddListener(gm.StartFlow);
     }
 
     void Start()
     {
+        iscanplayfilepath = Environment.CurrentDirectory + "/Assets/Scripts/iscanplay.txt";
+        if (!File.Exists(iscanplayfilepath))
+        {
+            File.WriteAllText(iscanplayfilepath, iscanplaynum.ToString());
+        }
+        else
+        {
+            iscanplaynum = int.Parse(File.ReadAllText(iscanplayfilepath));
+        }
+        Debug.Log(iscanplaynum);
         if (isDebug)
             LevelData.TimeLimit = defaultTimeLimit;
 
         bool isLastLevel = LevelData.LevelNumber ==
+<<<<<<< HEAD
+            /*(LevelData.IsFreeWorldMode ? SceneHandler.FreeWorldLevelCount :*/ SceneHandler.LevelSelectLevelCount;//);
+=======
             (LevelData.IsFreeWorldMode ? SceneHandler.FreeWorldLevelCount : SceneHandler.LevelSelectLevelCount);
+>>>>>>> develop
         if (LevelData.IsArcadeMode || isLastLevel)
-            nextLevelButton.gameObject.SetActive(false);
+     //       nextLevelButton.gameObject.SetActive(false);
 
         timerText.text = LevelData.TimeLimit.ToString();
         StartCoroutine("CountdownTimer");
+        timerSlider.maxValue = LevelData.TimeLimit;
+        timerSlider.value = 0;
+    }
+
+    void Update()
+    {
+        if(!gm.flowsStarted)timerSlider.value += 1 * Time.deltaTime;
     }
 
     /// <summary>
@@ -110,6 +142,11 @@ public class GUIHandler : MonoBehaviour
             string score = CalculateTotalScore();
             totalScore.text = score;
             levelHandler.PlayWinningAudio();
+<<<<<<< HEAD
+            iscanplaynum++;
+            //iscanplay‚Éã‘‚«
+            File.WriteAllText(iscanplayfilepath, iscanplaynum.ToString());
+=======
 
             //ƒXƒRƒA•Û‘¶
             int level = LevelData.LevelNumber;
@@ -120,13 +157,18 @@ public class GUIHandler : MonoBehaviour
                 PlayerPrefs.SetInt("HighScore_Level" + level, currentScore);
                 PlayerPrefs.Save();
             }
+>>>>>>> develop
         }
         else
         {
             endGameText.name = "You Lost";
             endGameText.GetComponent<TMP_Text>().text = "YOU LOST!";
             totalScore.text = "0"; // If the player looses the remaining Timer is unnecessary
+<<<<<<< HEAD
+            gameover.GetComponent<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("UI/ƒQ[ƒ€ƒI[ƒo[");
+=======
             levelHandler.PlayGameOverAudio(); // ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼æ™‚ã®BGMã‚’å†ç”Ÿ
+>>>>>>> develop
         }
 
         endGameMenu.SetActive(true);
@@ -151,7 +193,7 @@ public class GUIHandler : MonoBehaviour
         levelHandler.ResetLevel();
         timerText.text = LevelData.TimeLimit.ToString();
 
-        if (LevelData.IsFreeWorldMode)
+        if (LevelData.IsFreeWorldMode ||true)
         {
             SceneHandler.LoadLevel(LevelData.LevelNumber);
         }
@@ -208,9 +250,13 @@ public class GUIHandler : MonoBehaviour
     {
         // Minimum Score: 0
         // Maximum Score: 10000
-        double weight = LevelData.IsArcadeMode ? 1.0 : LevelSelectHandler.MaxTimeLimit / (double)LevelData.TimeLimit;
-        double notNormalizedScore = currentTime / (double)LevelData.TimeLimit / weight;
+
+        //double weight = LevelData.IsArcadeMode ? 1.0 : LevelSelectHandler.MaxTimeLimit / (double)LevelData.TimeLimit;
+        double weight = LevelData.IsArcadeMode ? 1.0 : 1.0 + (LevelData.LevelNumber - 1.0) / 10.0;
+        //double notNormalizedScore = currentTime / (double)LevelData.TimeLimit / weight;
+        double notNormalizedScore = 500 * (LevelData.TimeLimit - timerSlider.value) * weight;
         int score = Mathf.RoundToInt((float)(notNormalizedScore * MAXIMUM_SCORE));
+        
         return score.ToString();
     }
 

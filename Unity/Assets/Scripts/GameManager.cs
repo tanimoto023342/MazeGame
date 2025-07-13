@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     Dictionary<Position, int> distances;
 
     // Boolean flags to track if flow has started and if a win condition has been reached.
-    bool flowsStarted;
+    public bool flowsStarted;
     bool isWon;
 
     // List of boolean flags to keep track of whether each flow has finished.
