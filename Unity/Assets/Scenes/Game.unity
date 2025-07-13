@@ -340,7 +340,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &195125608
 GameObject:
@@ -722,7 +722,7 @@ AudioSource:
   m_GameObject: {fileID: 310522728}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7774859696842241082, guid: 6a82487bb7119e94aac8773cbaeb414a, type: 2}
   m_audioClip: {fileID: 8300000, guid: d5433b2adf50c794aa768f9d6d50386f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -5033,7 +5033,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1974619249
 MonoBehaviour:
@@ -5925,6 +5925,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3151487590251972772, guid: bd72d9e43fa974aa59379a2cb4776243, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 1436812779939081992, guid: 6a82487bb7119e94aac8773cbaeb414a, type: 2}
     - target: {fileID: 3151487590251972773, guid: bd72d9e43fa974aa59379a2cb4776243, type: 3}
       propertyPath: m_Name
       value: Audio Gameover Source

@@ -1097,7 +1097,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Original Game made by\ncorovcam\r\nRemade by\nShusuke Tanimoto\nJunichi
+  m_text: "Original Game made by\ncorovcam\r\nRemade by\nShusuke Tanimoto\nJinichi
     Suzuki\nHinata Saitou\nSakamaki\nBGM:\nSpringin\u2019 Sound Stock\u69D8\u300CSF1\u300D\n\u68EE\u7530\u4EA4\u4E00\u69D8\u300C\u30B5\u30A4\u30D0\u30FC37\u300D\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: daf970c6fc1fa3a4ca3ddfeae80a205c, type: 2}
