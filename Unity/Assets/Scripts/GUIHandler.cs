@@ -33,7 +33,7 @@ public class GUIHandler : MonoBehaviour
     public Button startFlowButton;
 
     public TMP_Text timerText;
-    public Slider timerSlider;//’Ç‰Á
+    public Slider timerSlider;//???
     public GameObject gameover;
 
     // After the Flow starts EndGame starts
@@ -77,11 +77,7 @@ public class GUIHandler : MonoBehaviour
             LevelData.TimeLimit = defaultTimeLimit;
 
         bool isLastLevel = LevelData.LevelNumber ==
-<<<<<<< HEAD
-            /*(LevelData.IsFreeWorldMode ? SceneHandler.FreeWorldLevelCount :*/ SceneHandler.LevelSelectLevelCount;//);
-=======
             (LevelData.IsFreeWorldMode ? SceneHandler.FreeWorldLevelCount : SceneHandler.LevelSelectLevelCount);
->>>>>>> develop
         if (LevelData.IsArcadeMode || isLastLevel)
      //       nextLevelButton.gameObject.SetActive(false);
 
@@ -142,13 +138,7 @@ public class GUIHandler : MonoBehaviour
             string score = CalculateTotalScore();
             totalScore.text = score;
             levelHandler.PlayWinningAudio();
-<<<<<<< HEAD
-            iscanplaynum++;
-            //iscanplay‚Éã‘‚«
-            File.WriteAllText(iscanplayfilepath, iscanplaynum.ToString());
-=======
-
-            //ƒXƒRƒA•Û‘¶
+            //?X?R?A???
             int level = LevelData.LevelNumber;
             int currentScore = int.Parse(score);
             int previousScore = PlayerPrefs.GetInt("HighScore_Level" + level, 0);
@@ -157,18 +147,14 @@ public class GUIHandler : MonoBehaviour
                 PlayerPrefs.SetInt("HighScore_Level" + level, currentScore);
                 PlayerPrefs.Save();
             }
->>>>>>> develop
         }
         else
         {
             endGameText.name = "You Lost";
             endGameText.GetComponent<TMP_Text>().text = "YOU LOST!";
             totalScore.text = "0"; // If the player looses the remaining Timer is unnecessary
-<<<<<<< HEAD
             gameover.GetComponent<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("UI/ƒQ[ƒ€ƒI[ƒo[");
-=======
-            levelHandler.PlayGameOverAudio(); // ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼æ™‚ã®BGMã‚’å†ç”Ÿ
->>>>>>> develop
+            levelHandler.PlayGameOverAudio(); // ƒQ[ƒ€ƒI[ƒo[Žž‚ÌBGM‚ðÄ¶
         }
 
         endGameMenu.SetActive(true);
