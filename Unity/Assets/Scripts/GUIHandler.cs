@@ -35,6 +35,8 @@ public class GUIHandler : MonoBehaviour
     public TMP_Text timerText;
     public Slider timerSlider;//???
     public GameObject gameover;
+    public AudioSource gameBGM; // ゲームBGM用AudioSource（ステージ1-4用）
+    public AudioSource gameBGMStage5to8; // ゲームBGM用AudioSource（ステージ5-8用）
 
     // After the Flow starts EndGame starts
     public static bool IsEndGame { get; set; } = false;
@@ -85,6 +87,9 @@ public class GUIHandler : MonoBehaviour
         StartCoroutine("CountdownTimer");
         timerSlider.maxValue = LevelData.TimeLimit;
         timerSlider.value = 0;
+
+        // ステージに応じてBGMを切り替え
+        SwitchBGMByStage();
     }
 
     void Update()
@@ -124,6 +129,16 @@ public class GUIHandler : MonoBehaviour
     /// The End Game Menu changes accordingly.</param>
     public void ShowEndGameMenu(bool isWon)
     {
+        // ゲーム終了時にBGMを停止
+        if (gameBGM != null && gameBGM.isPlaying)
+        {
+            gameBGM.Stop();
+        }
+        if (gameBGMStage5to8 != null && gameBGMStage5to8.isPlaying)
+        {
+            gameBGMStage5to8.Stop();
+        }
+
         gm.StopAllCoroutines();
         pauseButton.enabled = false;
         skipButton.gameObject.SetActive(false);
@@ -153,8 +168,8 @@ public class GUIHandler : MonoBehaviour
             endGameText.name = "You Lost";
             endGameText.GetComponent<TMP_Text>().text = "YOU LOST!";
             totalScore.text = "0"; // If the player looses the remaining Timer is unnecessary
-            gameover.GetComponent<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("UI/�Q�[���I�[�o�[");
-            levelHandler.PlayGameOverAudio(); // �Q�[���I�[�o�[����BGM���Đ�
+            gameover.GetComponent<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("UI/�Q�[���I�[�o�[");
+            levelHandler.PlayGameOverAudio(); // �Q�[���I�[�o�[����BGM���Đ�
         }
 
         endGameMenu.SetActive(true);
@@ -242,7 +257,7 @@ public class GUIHandler : MonoBehaviour
         //double notNormalizedScore = currentTime / (double)LevelData.TimeLimit / weight;
         double notNormalizedScore = 500 * (LevelData.TimeLimit - timerSlider.value) * weight;
         int score = Mathf.RoundToInt((float)(notNormalizedScore * MAXIMUM_SCORE));
-        
+
         return score.ToString();
     }
 
@@ -252,5 +267,45 @@ public class GUIHandler : MonoBehaviour
     void AccelerateFlow()
     {
         Time.timeScale = 4;
+    }
+
+    /// <summary>
+    /// ステージに応じてBGMを切り替えるメソッド
+    /// </summary>
+    void SwitchBGMByStage()
+    {
+        // 現在のステージを取得
+        int currentStage = LevelData.LevelNumber;
+
+        // ステージ1-4の場合
+        if (currentStage >= 1 && currentStage <= 4)
+        {
+            // ステージ5-8のBGMが再生中なら停止
+            if (gameBGMStage5to8 != null && gameBGMStage5to8.isPlaying)
+            {
+                gameBGMStage5to8.Stop();
+            }
+
+            // ステージ1-4のBGMを再生
+            if (gameBGM != null && !gameBGM.isPlaying)
+            {
+                gameBGM.Play();
+            }
+        }
+        // ステージ5-8の場合
+        else if (currentStage >= 5 && currentStage <= 8)
+        {
+            // ステージ1-4のBGMが再生中なら停止
+            if (gameBGM != null && gameBGM.isPlaying)
+            {
+                gameBGM.Stop();
+            }
+
+            // ステージ5-8のBGMを再生
+            if (gameBGMStage5to8 != null && !gameBGMStage5to8.isPlaying)
+            {
+                gameBGMStage5to8.Play();
+            }
+        }
     }
 }
