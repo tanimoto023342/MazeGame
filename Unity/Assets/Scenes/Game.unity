@@ -258,8 +258,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 49486656}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
-=======
 --- !u!1 &89468173
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +342,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> develop
 --- !u!1 &195125608
 GameObject:
   m_ObjectHideFlags: 0
