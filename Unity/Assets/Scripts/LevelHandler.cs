@@ -41,6 +41,7 @@ public class LevelHandler : MonoBehaviour
     // Audio sources for playing pipe rotation and winning sounds
     public AudioSource pipeRotationAudio;
     public AudioSource winningAudio;
+    public AudioSource gameOverAudio; // ゲームオーバー時のBGM用AudioSource
 
     // Serialized fields to be seen in the Inspector, activePipe and activePipeHandler
     [SerializeField] GameObject activePipe;
@@ -59,9 +60,9 @@ public class LevelHandler : MonoBehaviour
     public GameManager gameManager;
 
     /// <summary>
-    /// Method that sets default values at the start of the game if they weren't set 
+    /// Method that sets default values at the start of the game if they weren't set
     /// in Main Menu (for debugging purposes).
-    /// It initializes default square board and generates new grid & level. 
+    /// It initializes default square board and generates new grid & level.
     /// </summary>
     void Start()
     {
@@ -91,7 +92,7 @@ public class LevelHandler : MonoBehaviour
         SetStartEndPipeSprites(iterateStarts: true);
         SetStartEndPipeSprites(iterateStarts: false);
 
-        //Shuffle the Pipes 
+        //Shuffle the Pipes
         StartCoroutine(Shuffle());
     }
 
@@ -234,7 +235,7 @@ public class LevelHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// Auxiliary function to store 2D array of PipeHandler script instances after 
+    /// Auxiliary function to store 2D array of PipeHandler script instances after
     /// the grid and pipes were generated
     /// </summary>
     public void StoreGamePieces()
@@ -275,10 +276,10 @@ public class LevelHandler : MonoBehaviour
     /// </summary>
     void SetStartEndPipeSprites(bool iterateStarts)
     {
-        // Iterate through either the starting or ending positions of liquid pipes in a game level 
-        // and update their sprites based on their liquid type and whether they are filled or not. 
-        // If the game is in free world mode, the GridPipe component of the start/end pipes is also destroyed 
-        // (to prevent dragging events). 
+        // Iterate through either the starting or ending positions of liquid pipes in a game level
+        // and update their sprites based on their liquid type and whether they are filled or not.
+        // If the game is in free world mode, the GridPipe component of the start/end pipes is also destroyed
+        // (to prevent dragging events).
         var iterable = iterateStarts ? LevelData.Starts : LevelData.Ends;
 
         foreach (Liquid liq in iterable.Keys)
@@ -420,5 +421,14 @@ public class LevelHandler : MonoBehaviour
     public void PlayWinningAudio()
     {
         winningAudio.Play();
+    }
+
+    /// <summary>
+    /// ゲームオーバー時のBGMを再生する関数
+    /// </summary>
+    public void PlayGameOverAudio()
+    {
+        Debug.Log(gameOverAudio);
+        gameOverAudio.Play();
     }
 }

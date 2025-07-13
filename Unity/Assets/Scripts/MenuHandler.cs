@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -27,8 +27,10 @@ public class MenuHandler : MonoBehaviour
 
         GenerateMenuBtn("Level Select", 0, 224, () => SceneHandler.LoadLevelSelectScene(isFreeWorldMode: false));
         GenerateMenuBtn("Arcade", 0, 15, SceneHandler.LoadArcadeGameScene);
-        //É{É^ÉìÇÉRÉÅÉìÉgÉAÉEÉgÇ∑ÇÈÇ±Ç∆Ç≈ñ≥å¯âª
+        //„Éú„Çø„É≥„Çí„Ç≥„É°„É≥„Éà„Ç¢„Ç¶„Éà„Åô„Çã„Åì„Å®„ÅßÁÑ°ÂäπÂåñ
         GenerateMenuBtn("New Game", 0, -194, () => SceneHandler.LoadLevelSelectScene(isFreeWorldMode: true,deleteiscanplaynumdata: true));
+        //GenerateMenuBtn("Free World", 0, -194, () => SceneHandler.LoadLevelSelectScene(isFreeWorldMode: true));
+        GenerateMenuBtn("Credit", 0, -194, () => SceneHandler.LoadCreditScene());
         ConfigureDropdownGO();
 
         GenerateTitleText();
@@ -71,7 +73,7 @@ public class MenuHandler : MonoBehaviour
         Button buttonComp = buttonGO.AddComponent<Button>();
         buttonGO.AddComponent<CanvasRenderer>();
         Image buttonImg = buttonGO.AddComponent<Image>();
-        buttonImg.sprite = Resources.Load<Sprite>("UI/É{É^Éì");
+        buttonImg.sprite = Resources.Load<Sprite>("UI/„Éú„Çø„É≥");
         buttonImg.color = new Color(100, 249, 255, 255);
         buttonComp.targetGraphic = buttonImg;
 
@@ -116,7 +118,7 @@ public class MenuHandler : MonoBehaviour
         titleGO.name = "Title Text";
 
         TextMeshProUGUI textComp = titleGO.AddComponent<TextMeshProUGUI>();
-        textComp.text = "ÉpÉCÉvÇåqÇ∞ÇÈÉQÅ[ÉÄ";
+        textComp.text = "„Éë„Ç§„Éó„ÇíÁπã„Åí„Çã„Ç≤„Éº„É†";
         textComp.font = (TMP_FontAsset)Resources.Load("UI/BestTen-CRT SDF");
         textComp.fontSize = 40;
         textComp.fontStyle = FontStyles.Bold;

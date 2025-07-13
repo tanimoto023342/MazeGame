@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
@@ -19,6 +19,12 @@ public static class SceneHandler
     public static void LoadMainMenuScene()
     {
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+
+
+    public static void LoadCreditScene()
+    {
+        SceneManager.LoadScene("Credit", LoadSceneMode.Single);
     }
 
     public static void LoadLevelSelectScene(bool isFreeWorldMode, bool deleteiscanplaynumdata = false)
