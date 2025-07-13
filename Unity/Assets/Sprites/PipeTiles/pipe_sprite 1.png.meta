@@ -119,7 +119,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e1714892fbf66b942bee135d34851470
-      internalID: -608682712
+      internalID: -4489589724604784164
       vertices: []
       indices: 
       edges: []
@@ -140,7 +140,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 262b2f53e79587a468d27c32e9f2fb43
-      internalID: -800674540
+      internalID: -4498459180771202497
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: cda82ff3d3a793748b1cc29359d3a8e0
-      internalID: 995696820
+      internalID: -2472045969987385073
       vertices: []
       indices: 
       edges: []
@@ -182,7 +182,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 445110e2f43ada2429d04c8a9fb79c13
-      internalID: -278330512
+      internalID: -1522173269051376009
       vertices: []
       indices: 
       edges: []
@@ -202,13 +202,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-<<<<<<< Updated upstream
-      spriteID: 8ce813f9f3fe8c94f8a3dfe394bf585e
-      internalID: -1043325795
-=======
-      spriteID: e1c98edd8da17f44a99860df0fcf66c6
-      internalID: -1590805924
->>>>>>> Stashed changes
+      spriteID: 2878f645c42581f10800000000000000
+      internalID: 2240631302404409218
       vertices: []
       indices: 
       edges: []
@@ -216,7 +211,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 8b0d050ed1b13cb4e926b1b9900d2c9f
     internalID: 0
     vertices: []
     indices: 
@@ -224,15 +219,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pipe_sprite 1_1: -800674540
-      pipe_sprite 1_3: -278330512
-      pipe_sprite 1_2: 995696820
-      pipe_sprite 1_0: -608682712
-<<<<<<< Updated upstream
-      pipe_sprite 1_4: -1043325795
-=======
-      pipe_sprite 1_4: -1590805924
->>>>>>> Stashed changes
+      pipe_sprite 1_1: -4498459180771202497
+      pipe_sprite 1_3: -1522173269051376009
+      pipe_sprite 1_2: -2472045969987385073
+      pipe_sprite 1_0: -4489589724604784164
+      pipe_sprite 1_4: 2240631302404409218
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
