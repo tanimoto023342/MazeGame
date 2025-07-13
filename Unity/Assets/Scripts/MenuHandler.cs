@@ -27,7 +27,9 @@ public class MenuHandler : MonoBehaviour
 
         GenerateMenuBtn("Level Select", 0, 224, () => SceneHandler.LoadLevelSelectScene(isFreeWorldMode: false));
         GenerateMenuBtn("Arcade", 0, 15, SceneHandler.LoadArcadeGameScene);
-        GenerateMenuBtn("Free World", 0, -194, () => SceneHandler.LoadLevelSelectScene(isFreeWorldMode: true));
+        //ボタンをコメントアウトすることで無効化
+        //GenerateMenuBtn("Free World", 0, -194, () => SceneHandler.LoadLevelSelectScene(isFreeWorldMode: true));
+        GenerateMenuBtn("Credit", 0, -194, () => SceneHandler.LoadCreditScene());
         ConfigureDropdownGO();
 
         GenerateTitleText();

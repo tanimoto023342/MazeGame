@@ -7,13 +7,19 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public static class SceneHandler
 {
-    public static int LevelSelectLevelCount = Resources.LoadAll("LevelSelectLevels", typeof(TextAsset)).Length;
+    public static int LevelSelectLevelCount = 8;
+    //public static int LevelSelectLevelCount = Resources.LoadAll("LevelSelectLevels", typeof(TextAsset)).Length;
     public static int FreeWorldLevelCount = Resources.LoadAll("FreeWorldLevels", typeof(TextAsset)).Length;
     static bool[] tutorialsPlayed = new bool[3];
 
     public static void LoadMainMenuScene()
     {
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+
+    public static void LoadCreditScene()
+    {
+        SceneManager.LoadScene("Credit", LoadSceneMode.Single);
     }
 
     public static void LoadLevelSelectScene(bool isFreeWorldMode)
@@ -37,7 +43,7 @@ public static class SceneHandler
         LevelData.TimeLimit = LevelData.Difficulty == Difficulty.Normal ? 40 : 
             (LevelData.Difficulty == Difficulty.Hard ? 30 : 60);
 
-        if (tutorialsPlayed[1])
+        if (true)//チュートリアルに分岐しないよう変更
             SceneManager.LoadScene("Game", LoadSceneMode.Single);
         else
         {
@@ -71,7 +77,7 @@ public static class SceneHandler
         LevelData.TimeLimit = LevelData.Difficulty == Difficulty.Normal ? difficulties[1] :
             (LevelData.Difficulty == Difficulty.Hard ? difficulties[2] : difficulties[0]);
 
-        if ((LevelData.IsFreeWorldMode && tutorialsPlayed[2]) || (!LevelData.IsFreeWorldMode && tutorialsPlayed[0]))
+        if ((LevelData.IsFreeWorldMode && true) || (!LevelData.IsFreeWorldMode && true))//チュートリアルに分岐しないよう変更
             SceneManager.LoadScene("Game", LoadSceneMode.Single);
         else
         {
