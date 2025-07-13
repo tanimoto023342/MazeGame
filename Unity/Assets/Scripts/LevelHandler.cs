@@ -41,6 +41,7 @@ public class LevelHandler : MonoBehaviour
     // Audio sources for playing pipe rotation and winning sounds
     public AudioSource pipeRotationAudio;
     public AudioSource winningAudio;
+    public AudioSource gameOverAudio; // ゲームオーバー時のBGM用AudioSource
 
     // Serialized fields to be seen in the Inspector, activePipe and activePipeHandler
     [SerializeField] GameObject activePipe;
@@ -59,9 +60,9 @@ public class LevelHandler : MonoBehaviour
     public GameManager gameManager;
 
     /// <summary>
-    /// Method that sets default values at the start of the game if they weren't set 
+    /// Method that sets default values at the start of the game if they weren't set
     /// in Main Menu (for debugging purposes).
-    /// It initializes default square board and generates new grid & level. 
+    /// It initializes default square board and generates new grid & level.
     /// </summary>
     void Start()
     {
@@ -91,7 +92,7 @@ public class LevelHandler : MonoBehaviour
         SetStartEndPipeSprites(iterateStarts: true);
         SetStartEndPipeSprites(iterateStarts: false);
 
-        //Shuffle the Pipes 
+        //Shuffle the Pipes
         StartCoroutine(Shuffle());
     }
 
@@ -118,7 +119,7 @@ public class LevelHandler : MonoBehaviour
 
                 /* Sets the layer of tiles to "Ignore Raycast" to Raycast Pipes only.
                    Prevents various unexpected errors when using built-in Physics2D engine. */
-                if (LevelData.IsFreeWorldMode)
+                if (!LevelData.IsArcadeMode)
                 {
                     temp.layer = LayerMask.NameToLayer("Ignore Raycast");
                     var collider = temp.AddComponent<BoxCollider2D>();
@@ -149,7 +150,7 @@ public class LevelHandler : MonoBehaviour
         int offset = boardSize - 1;
         List<Pipe> pipesList = new List<Pipe>();
         // If the level is in free world mode, add all the pipes to a list. This is used to randomly select pipes without replacements.
-        if (LevelData.IsFreeWorldMode)
+        if (!LevelData.IsArcadeMode)
         {
             foreach (var pipe in pipes)
                 pipesList.Add(pipe);
@@ -162,7 +163,7 @@ public class LevelHandler : MonoBehaviour
             for (int x = 0; x < boardSize; x++)
             {
                 Pipe pipe;
-                if (LevelData.IsFreeWorldMode)
+                if (!LevelData.IsArcadeMode)
                 {
                     // If the level is in free world mode, then we want to randomly select a pipe without replacement, unless it's a start or end pipe.
                     if (LevelData.Starts.Select(kv => kv.Value).Any(v => v.Contains(new Position(x, y + offset))) ||
@@ -188,7 +189,7 @@ public class LevelHandler : MonoBehaviour
                 GameObject pipeGO = Instantiate(pipePrefab);
 
                 // Add the grid pipe component if the level is in free world mode.
-                if (LevelData.IsFreeWorldMode)
+                if (!LevelData.IsArcadeMode)
                 {
                     pipeGO.AddComponent<GridPipe>();
                     var rb = pipeGO.AddComponent<Rigidbody2D>();
@@ -234,7 +235,7 @@ public class LevelHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// Auxiliary function to store 2D array of PipeHandler script instances after 
+    /// Auxiliary function to store 2D array of PipeHandler script instances after
     /// the grid and pipes were generated
     /// </summary>
     public void StoreGamePieces()
@@ -275,10 +276,10 @@ public class LevelHandler : MonoBehaviour
     /// </summary>
     void SetStartEndPipeSprites(bool iterateStarts)
     {
-        // Iterate through either the starting or ending positions of liquid pipes in a game level 
-        // and update their sprites based on their liquid type and whether they are filled or not. 
-        // If the game is in free world mode, the GridPipe component of the start/end pipes is also destroyed 
-        // (to prevent dragging events). 
+        // Iterate through either the starting or ending positions of liquid pipes in a game level
+        // and update their sprites based on their liquid type and whether they are filled or not.
+        // If the game is in free world mode, the GridPipe component of the start/end pipes is also destroyed
+        // (to prevent dragging events).
         var iterable = iterateStarts ? LevelData.Starts : LevelData.Ends;
 
         foreach (Liquid liq in iterable.Keys)
@@ -302,7 +303,7 @@ public class LevelHandler : MonoBehaviour
 
                 pipe.GetComponent<SpriteRenderer>().sprite = chosenSprite;
 
-                if (LevelData.IsFreeWorldMode)
+                if (!LevelData.IsArcadeMode)
                 {
                     Destroy(pipe.GetComponent<GridPipe>());
                 }
@@ -317,7 +318,7 @@ public class LevelHandler : MonoBehaviour
     public void ResetLevel()
     {
         // If Free World mode is active, do nothing and return
-        if (LevelData.IsFreeWorldMode)
+        if (!LevelData.IsArcadeMode)
             return;
 
         // Reset each pipe to its default sprite variant (with or without a liquid)
@@ -420,5 +421,14 @@ public class LevelHandler : MonoBehaviour
     public void PlayWinningAudio()
     {
         winningAudio.Play();
+    }
+
+    /// <summary>
+    /// ゲームオーバー時のBGMを再生する関数
+    /// </summary>
+    public void PlayGameOverAudio()
+    {
+        Debug.Log(gameOverAudio);
+        gameOverAudio.Play();
     }
 }

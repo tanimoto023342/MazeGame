@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 /// <summary>
 /// Used to handle the load of new Scenes in the game and to configure the static default values.
@@ -12,14 +13,22 @@ public static class SceneHandler
     public static int FreeWorldLevelCount = Resources.LoadAll("FreeWorldLevels", typeof(TextAsset)).Length;
     static bool[] tutorialsPlayed = new bool[3];
 
+    private static string iscanplayfilepath;
+    public  static int iscanplaynum = 1;
+
     public static void LoadMainMenuScene()
     {
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
+    public static void LoadCreditScene()
+    {
+        SceneManager.LoadScene("Credit", LoadSceneMode.Single);
+    }
+
     public static void LoadLevelSelectScene(bool isFreeWorldMode)
     {
-        LevelData.IsFreeWorldMode = isFreeWorldMode;
+        LevelData.IsFreeWorldMode = /*!isFreeWorldMode*/false;
         SceneManager.LoadScene("LevelSelect", LoadSceneMode.Single);
     }
 
@@ -38,17 +47,29 @@ public static class SceneHandler
         LevelData.TimeLimit = LevelData.Difficulty == Difficulty.Normal ? 40 : 
             (LevelData.Difficulty == Difficulty.Hard ? 30 : 60);
 
-        if (true)//チュートリアルに分岐しないよう変更
+        //if (true)//チュートリアルに分岐しないよう変更
             SceneManager.LoadScene("Game", LoadSceneMode.Single);
+        /*
         else
         {
             tutorialsPlayed[1] = true;
             SceneManager.LoadScene("Tutorial", LoadSceneMode.Single);
         }
+        */
     }
 
     public static void LoadLevel(int levelNumber)
     {
+        iscanplayfilepath = Environment.CurrentDirectory + "/Assets/Scripts/iscanplay.txt";
+        if (!File.Exists(iscanplayfilepath))
+        {
+            File.WriteAllText(iscanplayfilepath, iscanplaynum.ToString());
+        }
+        else
+        {
+            iscanplaynum = int.Parse(File.ReadAllText(iscanplayfilepath));
+        }
+        if (iscanplaynum < levelNumber) return;
         GUIHandler.IsEndGame = false;
         PauseControl.GameIsPaused = false;
         LevelData.IsArcadeMode = false;
@@ -59,7 +80,7 @@ public static class SceneHandler
         LevelData.defaultEnd = null;
         LevelData.GamePieces = null;
 
-        if (LevelData.IsFreeWorldMode)
+        if (/*LevelData.IsFreeWorldMode &&*/ false)
             LevelData.lvlData = Resources.Load<TextAsset>("FreeWorldLevels/Level" + levelNumber.ToString())
                 .text.Split(Environment.NewLine);
         else
@@ -76,7 +97,7 @@ public static class SceneHandler
             SceneManager.LoadScene("Game", LoadSceneMode.Single);
         else
         {
-            if (LevelData.IsFreeWorldMode)
+            if (/*LevelData.IsFreeWorldMode &&*/ false)
             {
                 tutorialsPlayed[2] = true;
                 SceneManager.LoadScene("Tutorial", LoadSceneMode.Single);
