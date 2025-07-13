@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 /// <summary>
-/// Handles Game scene GUI Components, End Game Menu, Total Score calculaction 
+/// Handles Game scene GUI Components, End Game Menu, Total Score calculaction
 /// and Timer and its mechanism
 /// </summary>
 public class GUIHandler : MonoBehaviour
@@ -55,7 +55,7 @@ public class GUIHandler : MonoBehaviour
         if (isDebug)
             LevelData.TimeLimit = defaultTimeLimit;
 
-        bool isLastLevel = LevelData.LevelNumber == 
+        bool isLastLevel = LevelData.LevelNumber ==
             (LevelData.IsFreeWorldMode ? SceneHandler.FreeWorldLevelCount : SceneHandler.LevelSelectLevelCount);
         if (LevelData.IsArcadeMode || isLastLevel)
             nextLevelButton.gameObject.SetActive(false);
@@ -65,7 +65,7 @@ public class GUIHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// Coroutine that starts counting down the Timer every second until it reaches 0 
+    /// Coroutine that starts counting down the Timer every second until it reaches 0
     /// after which it's Game Over
     /// </summary>
     IEnumerator CountdownTimer()
@@ -92,7 +92,7 @@ public class GUIHandler : MonoBehaviour
     /// <summary>
     /// A popup GUI that shows the End Game menu with the Total Score, Restart, Quit and Next Level buttons
     /// </summary>
-    /// <param name="isWon">Used to determine if the player won or lost the game. 
+    /// <param name="isWon">Used to determine if the player won or lost the game.
     /// The End Game Menu changes accordingly.</param>
     public void ShowEndGameMenu(bool isWon)
     {
@@ -126,13 +126,14 @@ public class GUIHandler : MonoBehaviour
             endGameText.name = "You Lost";
             endGameText.GetComponent<TMP_Text>().text = "YOU LOST!";
             totalScore.text = "0"; // If the player looses the remaining Timer is unnecessary
+            levelHandler.PlayGameOverAudio(); // ゲームオーバー時のBGMを再生
         }
 
         endGameMenu.SetActive(true);
     }
 
     /// <summary>
-    /// Resumes the Game, restores defaults, restarts and shuffles the current level 
+    /// Resumes the Game, restores defaults, restarts and shuffles the current level
     /// </summary>
     public void RestartGame()
     {
