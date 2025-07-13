@@ -1100,7 +1100,7 @@ MonoBehaviour:
   m_text: "Original Game made by\ncorovcam\nGitHub: https://github.com/corovcam/pipe-world\r\nRemade
     by\nHinata Saitou\nJinichi Suzuki\nSakamaki Riku\nShusuke Tanimoto\nBGM:\nSpringin\u2019
     Sound Stock\u69D8\u300CSF1\u300D\n\u68EE\u7530\u4EA4\u4E00\u69D8\u300C\u30B5\u30A4\u30D0\u30FC13\u300D\u300C\u30B5\u30A4\u30D0\u30FC37\u300D\u300C\u30B5\u30A4\u30D0\u30FC43\u300D\npixabay
-    Videogame Death Sound\n\u30DD\u30B1\u30C3\u30C8\u30B5\u30A6\u30F3\u30C9\u300C\u3058\u3083\u3058\u3083\u3042\u3093\u300D\n\n"
+    Videogame Death Sound\n\u30DD\u30B1\u30C3\u30C8\u30B5\u30A6\u30F3\u30C9\u300C\u3058\u3083\u3058\u3083\u3042\u3093\u300D\nHowling indicator\u300Cselect\u300D\n(https://howlingindicator.net)\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: daf970c6fc1fa3a4ca3ddfeae80a205c, type: 2}
   m_sharedMaterial: {fileID: -876090720473291879, guid: daf970c6fc1fa3a4ca3ddfeae80a205c, type: 2}
