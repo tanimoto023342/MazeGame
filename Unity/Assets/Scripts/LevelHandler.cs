@@ -428,6 +428,7 @@ public class LevelHandler : MonoBehaviour
     /// </summary>
     public void PlayGameOverAudio()
     {
+        Debug.Log(gameOverAudio);
         gameOverAudio.Play();
     }
 }

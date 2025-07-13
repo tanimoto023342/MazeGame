@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3151487590251972771}
   - component: {fileID: 3151487590251972772}
   m_Layer: 0
-  m_Name: Auido Gameover Source
+  m_Name: Audio Gameover Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: aa0a011a9a9034ddc9b8dcb4a6a562bf, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.75
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

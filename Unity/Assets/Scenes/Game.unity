@@ -340,7 +340,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &195125608
 GameObject:
@@ -5442,9 +5442,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3151487590251972772, guid: bd72d9e43fa974aa59379a2cb4776243, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3151487590251972773, guid: bd72d9e43fa974aa59379a2cb4776243, type: 3}
       propertyPath: m_Name
-      value: Auido Gameover Source
+      value: Audio Gameover Source
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd72d9e43fa974aa59379a2cb4776243, type: 3}
